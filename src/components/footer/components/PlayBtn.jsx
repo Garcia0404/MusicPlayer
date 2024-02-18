@@ -4,7 +4,6 @@ export const PlayBtn = () => {
   const { play, setPlay } = useContext(contexto)
   function change() {
     setPlay(!play)
-    console.log(play)
   }
   const changeStyle1 = play ? 'hidden' : 'block'
   const changeStyle2 = play ? 'block' : 'hidden'

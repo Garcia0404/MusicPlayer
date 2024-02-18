@@ -1,16 +1,20 @@
 import { useContext } from 'react'
-import { CardMain } from '.'
+import { CardMain } from '../../homepage/components'
 import { albums } from '../../../helper/music/albums'
 import { contexto } from '../../../context/AppContext'
-export const Main = () => {
-
-  const a = albums[0].canciones
+import { useParams } from 'react-router-dom'
+export const AlbumMain = () => {
+  const nameAlbum = useParams().name
+  const albumid = albums.find((album)=>(
+    album.nombreRoute==nameAlbum
+  ))
+  const a = albumid.canciones
   const { setMusic } = useContext(contexto)
   return (
     <main className='col-start-3 col-end-8 bg-secondary rounded-md overflow-auto'>
       
       <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 rounded-md'>
-        <CardMain {...albums[0]}/>
+        <CardMain {...albumid}/>
       </section>
       <section className='p-6'>
         <table className='w-full'>

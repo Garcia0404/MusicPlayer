@@ -1,6 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
+import { CardAlbum } from './components'
+import { albums } from '../../helper/music/albums'
 export const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <nav className='flex flex-col bg-black gap-2 col-start-1 col-end-3'>
       <section className='bg-secondary rounded-md p-6'>
@@ -30,6 +33,17 @@ export const Navbar = () => {
           </svg>
           <h1>Albums</h1>
         </span>
+        <ul className='list-none mt-5 flex flex-col gap-2'>
+          {
+            albums.map((album)=>(
+              <li onClick={()=>navigate(`/${album.nombreRoute}`)} key={album.nombre}>
+                <CardAlbum {...album}/>
+              </li>
+              ))
+          }
+
+        </ul>
+        
       </section>
     </nav>
   )
