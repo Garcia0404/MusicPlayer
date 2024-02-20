@@ -5,7 +5,7 @@ import { albums } from '../../helper/music/albums'
 export const Navbar = () => {
   const navigate = useNavigate()
   return (
-    <nav className='flex flex-col bg-black gap-2 col-start-1 col-end-3'>
+    <nav className='hidden lg:flex flex-col bg-black gap-2 col-start-1 col-end-3'>
       <section className='bg-secondary rounded-md p-6'>
         <ul className='list-none text-white9 font-semibold flex flex-col gap-6'>
           <NavLink to='/' className={({ isActive }) => isActive ? 'text-white' : ''}>

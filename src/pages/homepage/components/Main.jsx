@@ -7,7 +7,7 @@ export const Main = () => {
   const a = albums[0].canciones
   const { setMusic } = useContext(contexto)
   return (
-    <main className='col-start-3 col-end-8 bg-secondary rounded-md overflow-auto'>
+    <main className='max-w-[700px] lg:max-w-full mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary rounded-md lg:overflow-auto'>
       
       <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 rounded-md'>
         <CardMain {...albums[0]}/>
