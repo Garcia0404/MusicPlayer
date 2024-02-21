@@ -3,6 +3,7 @@ export const albums = [
     nombre: 'Is This It',
     nombreRoute:'IsThisIt',
     lanzamiento: '27 de agosto del 2001',
+    año:'2001',
     image:'/albums/IsThisIt.png',
     canciones: [
       { 
@@ -99,6 +100,7 @@ export const albums = [
     nombre: 'Room On Fire',
     nombreRoute:'RoomOnFire',
     lanzamiento: '28 de octubre del 2003',
+    año:'2003',
     image:'/albums/RoomOnFire.jpeg',
     canciones: [
       { 
@@ -187,6 +189,7 @@ export const albums = [
     nombre: 'First Impressions Of Earth',
     nombreRoute:'FirstImpressionsOfEarth',
     lanzamiento: '3 de enero del 2006',
+    año:'2006',
     image:'/albums/FirstImpressionsOfEarth.jpg',
     canciones: [
       { 
@@ -307,6 +310,7 @@ export const albums = [
     nombre: 'Angles',
     nombreRoute:'Angles',
     lanzamiento: '22 de marzo de 2011',
+    año:'2011',
     image:'/albums/Angles.jpg',
     canciones: [
       { 
@@ -393,8 +397,9 @@ export const albums = [
   },
   {
     nombre: 'Comedown Machine',
-    nombreRoute:'Comedown Machine',
+    nombreRoute:'ComedownMachine',
     lanzamiento: '26 de marzo del 2013',
+    año:'2013',
     image:'/albums/ComedownMachine.jpg',
     canciones: [
       { 
@@ -491,6 +496,7 @@ export const albums = [
     nombre: 'The New Abnormal',
     nombreRoute:'TheNewAbnormal',
     lanzamiento: '10 de abril de 2020',
+    año:'2020',
     image:'/albums/TheNewAbnormal.jpg',
     canciones: [
       { 

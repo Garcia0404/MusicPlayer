@@ -4,10 +4,10 @@ export const AppContext = ({ children }) => {
   const [play, setPlay] = useState(false)
   const [music, setMusic] = useState({
     name: 'Is This It',
-    music: 'src/music/theStrokes/IsThisIt.mp3',
+    music: '/music/theStrokes/IsThisIt.mp3',
     album: {
       albumName: 'Is This It',
-      albumImg: 'src/assets/albums/IsThisIt.png',
+      albumImg: '/albums/IsThisIt.png',
     }, 
     initial: 1
   })

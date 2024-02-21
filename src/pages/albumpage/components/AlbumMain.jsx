@@ -11,7 +11,7 @@ export const AlbumMain = () => {
   const a = albumid.canciones
   const { setMusic } = useContext(contexto)
   return (
-    <main className='col-start-3 col-end-8 bg-secondary rounded-md overflow-auto'>
+    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary mobileLg:rounded-md lg:overflow-auto'>
       
       <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 rounded-md'>
         <CardMain {...albumid}/>
@@ -22,7 +22,7 @@ export const AlbumMain = () => {
             <tr>
               <th className='p-2'>#</th>
               <th className='text-start'>Title</th>
-              <th className='text-start' >Artist</th>
+              <th className='hidden mobileLg:table-cell text-start' >Artist</th>
               <th className='text-start'>Duration</th>
             </tr>
           </thead>
@@ -33,7 +33,7 @@ export const AlbumMain = () => {
                 <tr key={index} onClick={()=>setMusic(music)} className='hover:bg-grayMain cursor-pointer active:scale-[0.98] hover:scale-[1.02] transition-all'>
                   <td className='text-center text-white9 p-2 '>{index+1}</td>
                   <td>{music.name}</td>
-                  <td className='text-white9'>The Strokes</td>
+                  <td className='text-white9 hidden mobileLg:table-cell'>The Strokes</td>
                   <td className='text-white9'>2min</td>
                 </tr>
                 )

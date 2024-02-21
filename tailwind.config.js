@@ -11,6 +11,12 @@ export default {
         'grayMain':'#2A2A2A',
         'white9':'#9a9a9a',
         'greenMain':'#1ED760',
+        'red9':'#640101'
+      },
+      screens:{
+        'mobile':'360px',
+        'mobileLg':'500px',
+        'tablet':'610px',
       }
     },
   },
