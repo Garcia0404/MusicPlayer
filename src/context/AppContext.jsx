@@ -6,6 +6,7 @@ export const AppContext = ({ children }) => {
   const [repeat, setRepeat] = useState(false)
   const [volume, setVolume] = useState(100)
   const [ likeSong, setLikeSong ] = useState(false)
+  const [ musicTime,setMusicTime ] = useState(0)
   const [music, setMusic] = useState({
     name: 'Is This It',
     music: '/music/theStrokes/IsThisIt.mp3',
@@ -20,7 +21,7 @@ export const AppContext = ({ children }) => {
   }
     , [music])
   return (
-    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong }}>
+    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime,setMusicTime }}>
       {children}
     </contexto.Provider>
   )

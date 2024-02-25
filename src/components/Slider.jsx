@@ -10,19 +10,33 @@ export const Slider = () => {
   return (
     <div>
       <style>
-        {`
-          input[type="range"]::-webkit-slider-thumb {
-            appearance: none;
-            width: 13px;
-            height: 13px;
-            background-color: #888; /* Cambia el color del thumb a gris */
-            border-radius: 50%;
-            cursor: pointer;
-          }
-        `}
+      {`
+      .input-sound::-webkit-slider-thumb {
+        opacity: 0;
+        appearance: none;
+        width: 13px;
+        height: 13px;
+        background-color: #888;
+        border-radius: 50%;
+        cursor: pointer;
+        transition-duration:100ms
+      }
+      .input-sound:hover::-webkit-slider-thumb{
+        opacity: 1;
+      }
+      .input-sound {
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, white ${volume}%, #4D4D4D ${volume}%);
+        border-radius: 5px;
+        appearance: none;
+        cursor: pointer;
+      }
+    `}
       </style>
-      <div className='text-white'>
+      <label className='text-white flex items-center'>
         <input 
+          className='input-sound'
           type="range" 
           min={0} 
           max={100} 
@@ -30,7 +44,7 @@ export const Slider = () => {
           onChange={handleChange} 
           style={{ width: '100%', height: '5px', backgroundColor: '#ddd', borderRadius: '5px', outline: 'none', appearance: 'none', cursor: 'pointer'}}
         />
-      </div>
+      </label>
     </div>
   );
 }

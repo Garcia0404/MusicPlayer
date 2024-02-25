@@ -11,9 +11,8 @@ export const AlbumMain = () => {
   const a = albumid.canciones
   const { setMusic } = useContext(contexto)
   return (
-    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary mobileLg:rounded-md lg:overflow-auto'>
-      
-      <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 rounded-md'>
+    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary lg:overflow-auto'>
+      <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 mobileLg:rounded-md'>
         <CardMain {...albumid}/>
       </section>
       <section className='p-6'>

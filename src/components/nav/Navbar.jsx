@@ -27,12 +27,14 @@ export const Navbar = () => {
         </div>
       </section>
       <section className='bg-secondary flex-1 rounded-md p-6'>
+        <NavLink to='/albums' className={({ isActive }) => isActive ? 'text-white' : ''}>
         <span className='flex gap-4 text-white9 font-semibold hover:text-white cursor-pointer transition-all'>
           <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
           </svg>
           <h1>Albums</h1>
         </span>
+        </NavLink>
         <ul className='list-none mt-5 flex flex-col gap-2'>
           {
             albums.map((album)=>(
