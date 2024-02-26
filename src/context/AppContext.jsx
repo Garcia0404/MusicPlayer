@@ -5,7 +5,7 @@ export const AppContext = ({ children }) => {
   const [random, setRandom] = useState(false)
   const [repeat, setRepeat] = useState(false)
   const [volume, setVolume] = useState(100)
-  const [ likeSong, setLikeSong ] = useState(false)
+  const [ likeSong, setLikeSong ] = useState([])
   const [ musicTime,setMusicTime ] = useState(0)
   const [music, setMusic] = useState({
     name: 'Is This It',

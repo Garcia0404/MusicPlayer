@@ -1,7 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { contexto } from '../../../context/AppContext'
 export const CardSong = () => {
-  const { music,likeSong,setLikeSong } = useContext(contexto)
+  const { music } = useContext(contexto)
+  console.log(music)
+  const [ likeSong,setLikeSong ] = useState(false)
   const style = likeSong?'fill-greenMain stroke-greenMain':'fill-none stroke-white'
   function handleClick(){
     setLikeSong(!likeSong)

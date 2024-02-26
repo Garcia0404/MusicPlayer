@@ -2,27 +2,14 @@ import { contexto } from '../../context/AppContext'
 import { PlayBtn, RandomBtn, RepeatBtn, CardSong, LikeBtn,Slider,MuteBtn,SliderMusic } from './components'
 import { useContext, useRef, useState,useEffect} from 'react'
 export const Footer = () => {
-  const { music, play,volume,musicTime,setMusicTime } = useContext(contexto)
-  const [ duration,setDuration ] = useState(0)
+  const { music, play,volume } = useContext(contexto)
   const ref = useRef()
   useEffect(() => {
     if (ref.current) {
       play ? ref.current.play() : ref.current.pause();
       ref.current.volume = volume / 100;
-      
-      const handleLoadedMetadata = () => {
-        const time = (ref.current.duration / 60).toFixed(2);
-        setDuration(time);
-      };
-  
-      ref.current.addEventListener('loadedmetadata', handleLoadedMetadata);
-  
-      return () => {
-        ref.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      };
     }
   }, [play, volume]);
-  console.log(musicTime)
   return (
     <footer className='w-full bg-transparent sticky right-0 bottom-20 tablet:bottom-0 tablet:m-0'>
       <div className='flex tablet:grid grid-cols-10 items-center tablet:mx-0 bg-red9 tablet:bg-black rounded-lg p-4 mx-2'>
@@ -48,7 +35,7 @@ export const Footer = () => {
           <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-3'>
             <span>time</span>
             <SliderMusic/>
-            <span>{duration}</span>
+            <span>duration</span>
           </section>
         </main>
         <article className='hidden tablet:flex items-center gap-3 justify-center col-start-8 col-end-11'>
