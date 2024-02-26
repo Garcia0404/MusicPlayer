@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, SearchPage,AppRouterD } from '..'
+import { HomePage, SearchPage,AppRouterD,FavoritesPage } from '..'
 import { Footer,NavbarMobile } from '../../components'
 export const AppRouter = () => {
   return (
@@ -7,6 +7,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/search' element={<SearchPage />} />
+        <Route path='/favorites' element={<FavoritesPage/>}/>
         <Route path='/*' element={<AppRouterD/>}/>
       </Routes>
       <Footer />

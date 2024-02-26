@@ -1,13 +1,28 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { contexto } from '../../../context/AppContext'
 export const CardSong = () => {
-  const { music } = useContext(contexto)
-  console.log(music)
-  const [ likeSong,setLikeSong ] = useState(false)
-  const style = likeSong?'fill-greenMain stroke-greenMain':'fill-none stroke-white'
-  function handleClick(){
-    setLikeSong(!likeSong)
+  const { music, likeSong, setLikeSong } = useContext(contexto)
+  const [likeMusic, setLikeMusic] = useState(false)
+  const style = likeMusic ? 'fill-greenMain stroke-greenMain' : 'fill-none stroke-white'
+  const eq = likeSong.find((song) => song.name == music.name)
+  function handleClick() {
+    if (eq) {
+      setLikeSong(likeSong.filter((song) => song.name != music.name))
+      setLikeMusic(false)
+    } else {
+      setLikeSong([...likeSong, music])
+      setLikeMusic(true)
+    }
   }
+  useEffect(
+    () => {
+      if (eq) {
+        setLikeMusic(true)
+      } else {
+        setLikeMusic(false)
+      }
+    }, [music]
+  )
   return (
     <>
       <img className='mobileLg:w-14 mobileLg:h-14 rounded w-10 h-10' src={music.album.albumImg} alt={music.album.albumName} />
