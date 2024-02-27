@@ -1,5 +1,6 @@
 export * from './footer/Footer'
 export * from './nav/NavbarMobile'
+export * from './nav/Navbar'
 export * from './Circle'
 export * from './nav/components/CardAlbum'
 export * from './SliderMusic'

@@ -18,7 +18,7 @@ export default {
         'mobile':'360px',
         'mobileLg':'500px',
         'tablet':'610px',
-      }
+      },
     },
   },
   plugins: [],
