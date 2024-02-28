@@ -18,12 +18,14 @@ export const Footer = () => {
   }, [play, volume]);
 
   useEffect(() => {
+    if(music.name){
     ref.current.addEventListener('timeupdate', handleTimeUpdate)
     ref.current.addEventListener('loadedmetadata', handleLoadedM)
     setSliderTime(parseFloat(timeSong*100/durationSong))
     return () => {
       ref.current.removeEventListener('timeupdate', handleTimeUpdate)
       ref.current.removeEventListener('loadedmetadata', handleLoadedM)
+    }
     }
   })
 

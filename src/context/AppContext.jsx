@@ -18,7 +18,6 @@ export const AppContext = ({ children }) => {
     }
   }, [music])
   useEffect(()=>{
-    setPlay(true)
     if(localStorage.getItem('song')){
     const album = localStorage.getItem('album')
     const song = localStorage.getItem('song')
@@ -28,13 +27,15 @@ export const AppContext = ({ children }) => {
     }
   },[])
   useEffect(()=>{
-    if(likeSong.length>0){
+    if(likeSong.length!==0){
     localStorage.setItem('favorites',JSON.stringify(likeSong))
     }
   },[likeSong])
   useEffect(()=>{
+    if(localStorage.getItem('favorites')){
     const favorites = JSON.parse(localStorage.getItem('favorites'))
     setLikeSong(favorites)
+    }
   },[])
   return (
     <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime,setMusicTime,sliderTime,setSliderTime }}>
