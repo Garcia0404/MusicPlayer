@@ -25,7 +25,7 @@ export const CardSong = () => {
   )
   return (
     <>
-      <img className='mobileLg:w-14 mobileLg:h-14 rounded w-10 h-10' src={music.album.albumImg} alt={music.album.albumName} />
+      <img className='mobileLg:w-14 mobileLg:h-14 rounded w-10 h-10' src={music?.album?.albumImg} alt={music?.album?.albumName} />
       <div className='flex flex-col text-white justify-center w-20 gap-1'>
         <marquee className='text-sm' behavior="scroll" direction="left" scrollamount="3">{music.name}</marquee>
         <span className='font-extralight text-xs text-nowrap'>The Strokes</span>

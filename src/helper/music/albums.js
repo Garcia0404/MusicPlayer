@@ -9,6 +9,7 @@ export const albums = [
       { 
         name: 'Is This It' ,
         music: '/music/theStrokes/IsThisIt.mp3',
+        duration:'2:29',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -17,6 +18,7 @@ export const albums = [
       { 
         name: 'The Modern Age' ,
         music: '/music/theStrokes/TheModernAge.mp3',
+        duration:'3:28',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -25,6 +27,7 @@ export const albums = [
       { 
         name: 'Soma' ,
         music: '/music/theStrokes/Soma.mp3',
+        duration:'2:34',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -33,6 +36,7 @@ export const albums = [
       { 
         name: 'Barely Legal' ,
         music: '/music/theStrokes/BarelyLegal.mp3',
+        duration:'3:50',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -41,6 +45,7 @@ export const albums = [
       { 
         name: 'Someday' ,
         music: '/music/theStrokes/Someday.mp3',
+        duration:'3:06',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -49,6 +54,7 @@ export const albums = [
       { 
         name: 'Alone, Together' ,
         music: '/music/theStrokes/AloneTogether.mp3',
+        duration:'3:09',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -57,6 +63,7 @@ export const albums = [
       { 
         name: 'Last Nite' ,
         music: '/music/theStrokes/LastNite.mp3',
+        duration:'3:13',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -65,6 +72,7 @@ export const albums = [
       { 
         name: 'Hard To Explain' ,
         music: '/music/theStrokes/HardToExplain.mp3',
+        duration:'3:44',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -73,6 +81,7 @@ export const albums = [
       { 
         name: 'New York City Cops' ,
         music: '/music/theStrokes/NewYorkCityCops.mp3',
+        duration:'3:30',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -81,6 +90,7 @@ export const albums = [
       { 
         name: 'Trying Your Luck' ,
         music: '/music/theStrokes/TryingYourLuck.mp3',
+        duration:'3:23',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -89,6 +99,7 @@ export const albums = [
       { 
         name: 'Take It or Leave It' ,
         music: '/music/theStrokes/TakeItOrLeaveIt.mp3',
+        duration:'3:16',
         album:{
           albumName:'Is This It',
           albumImg:'/albums/IsThisIt.png',
@@ -106,6 +117,7 @@ export const albums = [
       { 
         name: 'What Ever Happened?' ,
         music: '/music/theStrokes/WhatEverHappened.mp3',
+        duration:'2:49',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -114,6 +126,7 @@ export const albums = [
       { 
         name: 'Reptilia' ,
         music: '/music/theStrokes/Reptilia.mp3',
+        duration:'3:35',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -122,6 +135,7 @@ export const albums = [
       { 
         name: 'Automatic Stop' ,
         music: '/music/theStrokes/AutomaticStop.mp3',
+        duration:'3:21',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -130,6 +144,7 @@ export const albums = [
       { 
         name: '12:51' ,
         music: '/music/theStrokes/12:51.mp3',
+        duration:'2:27',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -138,6 +153,7 @@ export const albums = [
       { 
         name: 'You Talk Way Too Much' ,
         music: '/music/theStrokes/YouTalkWayTooMuch.mp3',
+        duration:'3:00',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -146,6 +162,7 @@ export const albums = [
       { 
         name: 'Between Love & Hate' ,
         music: '/music/theStrokes/BetweenLove&Hate.mp3',
+        duration:'2:58',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -154,6 +171,7 @@ export const albums = [
       { 
         name: 'Meet Me In The Bathroom' ,
         music: '/music/theStrokes/MeetMeInTheBathroom.mp3',
+        duration:'2:50',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -162,6 +180,7 @@ export const albums = [
       { 
         name: 'The Way It Is' ,
         music: '/music/theStrokes/TheWayItIs.mp3',
+        duration:'2:16',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -170,6 +189,7 @@ export const albums = [
       { 
         name: 'The End Has No End' ,
         music: '/music/theStrokes/TheEndHasNoEnd.mp3',
+        duration:'2:59',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -178,6 +198,7 @@ export const albums = [
       { 
         name: "I Can't Win" ,
         music: '/music/theStrokes/ICantWin.mp3',
+        duration:'2:28',
         album:{
           albumName:'RoomOnFire',
           albumImg:'/albums/RoomOnFire.jpeg',
@@ -195,6 +216,7 @@ export const albums = [
       { 
         name: 'You Only Live Once',
         music: '/music/theStrokes/YouOnlyLiveOnce.mp3',
+        duration:'3:09',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -203,6 +225,7 @@ export const albums = [
       { 
         name: 'Juicebox',
         music: '/music/theStrokes/Juicebox.mp3',
+        duration:'3:15',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -211,6 +234,7 @@ export const albums = [
       { 
         name: 'Heart In A Cage',
         music: '/music/theStrokes/HeartInACage.mp3',
+        duration:'3:25',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -219,6 +243,7 @@ export const albums = [
       { 
         name: 'Razorblade',
         music: '/music/theStrokes/Razorblade.mp3',
+        duration:'3:28',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -227,6 +252,7 @@ export const albums = [
       { 
         name: 'On The Other Side',
         music: '/music/theStrokes/OnTheOtherSide.mp3',
+        duration:'4:36',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -235,6 +261,7 @@ export const albums = [
       { 
         name: 'Vision Of Division',
         music: '/music/theStrokes/VisionOfDivision.mp3',
+        duration:'4:19',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -243,6 +270,7 @@ export const albums = [
       { 
         name: 'Ask Me Anything',
         music: '/music/theStrokes/AskMeAnything.mp3',
+        duration:'3:11',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -251,6 +279,7 @@ export const albums = [
       { 
         name: 'Electricityscape',
         music: '/music/theStrokes/Electricityscape.mp3',
+        duration:'3:33',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -259,6 +288,7 @@ export const albums = [
       { 
         name: 'Killing Lies',
         music: '/music/theStrokes/KillingLies.mp3',
+        duration:'3:48',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -267,6 +297,7 @@ export const albums = [
       { 
         name: 'Fear Of Sleep',
         music: '/music/theStrokes/FearOfSleep.mp3',
+        duration:'4:00',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -275,6 +306,7 @@ export const albums = [
       { 
         name: '15 Minutes',
         music: '/music/theStrokes/15Minutes.mp3',
+        duration:'4:33',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -283,6 +315,7 @@ export const albums = [
       { 
         name: 'Ize Of The World',
         music: '/music/theStrokes/IzeOfTheWorld.mp3',
+        duration:'4:25',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -291,6 +324,7 @@ export const albums = [
       { 
         name: 'Evening Sun',
         music: '/music/theStrokes/EveningSun.mp3',
+        duration:'3:06',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -299,6 +333,7 @@ export const albums = [
       { 
         name: 'Red Light',
         music: '/music/theStrokes/RedLight.mp3',
+        duration:'3:11',
         album:{
           albumName:'First Impressions Of Earth',
           albumImg:'/albums/FirstImpressionsOfEarth.jpg',
@@ -316,6 +351,7 @@ export const albums = [
       { 
         name: 'Machu Picchu',
         music: '/music/theStrokes/MachuPicchu.mp3',
+        duration:'3:29',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -324,6 +360,7 @@ export const albums = [
       { 
         name: 'Under Cover Of Darkness',
         music: '/music/theStrokes/UnderCoverOfDarkness.mp3',
+        duration:'3:55',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -332,6 +369,7 @@ export const albums = [
       { 
         name: 'Two Kinds Of Happiness',
         music: '/music/theStrokes/TwoKindsOfHappiness.mp3',
+        duration:'3:42',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -340,6 +378,7 @@ export const albums = [
       { 
         name: "You're So Right",
         music: '/music/theStrokes/YoureSoRight.mp3',
+        duration:'2:33',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -348,6 +387,7 @@ export const albums = [
       { 
         name: 'Taken For A Fool',
         music: '/music/theStrokes/TakenForAFool.mp3',
+        duration:'3:24',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -356,6 +396,7 @@ export const albums = [
       { 
         name: 'Games',
         music: '/music/theStrokes/Games.mp3',
+        duration:'3:51',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -364,6 +405,7 @@ export const albums = [
       { 
         name: 'Call Me Back',
         music: '/music/theStrokes/CallMeBack.mp3',
+        duration:'3:00',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -372,6 +414,7 @@ export const albums = [
       { 
         name: 'Gratisfaction',
         music: '/music/theStrokes/Gratisfaction.mp3',
+        duration:'2:59',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -380,6 +423,7 @@ export const albums = [
       { 
         name: 'Metabolism',
         music: '/music/theStrokes/Metabolism.mp3',
+        duration:'3:00',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -388,6 +432,7 @@ export const albums = [
       { 
         name: 'Life Is Simple In The Moonlight',
         music: '/music/theStrokes/LifeIsSimpleInTheMoonlight.mp3',
+        duration:'4:15',
         album:{
           albumName:'Angles',
           albumImg:'/albums/Angles.jpg',
@@ -404,7 +449,8 @@ export const albums = [
     canciones: [
       { 
         name: 'Tap Out',
-        music: '/music/theStrokes/Tap Out.mp3',
+        music: '/music/theStrokes/TapOut.mp3',
+        duration:'3:42',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -413,6 +459,7 @@ export const albums = [
       { 
         name: 'All The Time',
         music: '/music/theStrokes/AllTheTime.mp3',
+        duration:'3:02',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -421,6 +468,7 @@ export const albums = [
       { 
         name: 'One Way Trigger',
         music: '/music/theStrokes/OneWayTrigger.mp3',
+        duration:'4:00',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -429,6 +477,7 @@ export const albums = [
       { 
         name: 'Welcome To Japan',
         music: '/music/theStrokes/WelcomeToJapan.mp3',
+        duration:'3:50',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -437,6 +486,7 @@ export const albums = [
       { 
         name: "80's Comedown Machine",
         music: '/music/theStrokes/ComedownMachine.mp3',
+        duration:'4:58',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -445,6 +495,7 @@ export const albums = [
       { 
         name: '50/50',
         music: '/music/theStrokes/5050.mp3',
+        duration:'2:43',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -453,6 +504,7 @@ export const albums = [
       { 
         name: 'Slow Animals',
         music: '/music/theStrokes/SlowAnimals.mp3',
+        duration:'4:20',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -461,6 +513,7 @@ export const albums = [
       { 
         name: 'Partners In Crime',
         music: '/music/theStrokes/PartnersInCrime.mp3',
+        duration:'3:21',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -469,6 +522,7 @@ export const albums = [
       { 
         name: 'Chances',
         music: '/music/theStrokes/Chances.mp3',
+        duration:'3:36',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -477,6 +531,7 @@ export const albums = [
       { 
         name: 'Happy Ending',
         music: '/music/theStrokes/HappyEnding.mp3',
+        duration:'2:52',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -485,6 +540,7 @@ export const albums = [
       { 
         name: 'Call It Fate, Call It Karma',
         music: '/music/theStrokes/CallItFateKarma.mp3',
+        duration:'3:24',
         album:{
           albumName:'Comedown Machine',
           albumImg:'/albums/ComedownMachine.jpg',
@@ -502,6 +558,7 @@ export const albums = [
       { 
         name: 'The Adults Are Talking',
         music: '/music/theStrokes/TheAdultsAreTalking.mp3',
+        duration:'5:10',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -510,6 +567,7 @@ export const albums = [
       { 
         name: 'Selfless',
         music: '/music/theStrokes/Selfless.mp3',
+        duration:'3:43',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -518,6 +576,7 @@ export const albums = [
       { 
         name: 'Brooklyn Bridge To Chorus',
         music: '/music/theStrokes/BrooklynBridgeToChorus.mp3',
+        duration:'3:57',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -526,6 +585,7 @@ export const albums = [
       { 
         name: 'Bad Decisions',
         music: '/music/theStrokes/BadDecisions.mp3',
+        duration:'4:54',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -534,6 +594,7 @@ export const albums = [
       { 
         name: "Eternal Summer",
         music: '/music/theStrokes/EternalSummer.mp3',
+        duration:'6:16',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -542,6 +603,7 @@ export const albums = [
       { 
         name: 'At The Door',
         music: '/music/theStrokes/AtTheDoor.mp3',
+        duration:'5:53',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -550,6 +612,7 @@ export const albums = [
       { 
         name: 'Why Are Sundays So Depressing?',
         music: '/music/theStrokes/WhyAreSundaysSoDepressing.mp3',
+        duration:'4:37',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -558,6 +621,7 @@ export const albums = [
       { 
         name: 'Not The Same Anymore',
         music: '/music/theStrokes/NotTheSameAnymore.mp3',
+        duration:'5:38',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
@@ -566,6 +630,7 @@ export const albums = [
       { 
         name: 'Ode To The Mets',
         music: '/music/theStrokes/OdeToTheMets.mp3',
+        duration:'5:53',
         album:{
           albumName:'The New Abnormal',
           albumImg:'/albums/TheNewAbnormal.jpg',
