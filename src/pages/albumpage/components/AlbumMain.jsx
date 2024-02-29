@@ -9,13 +9,13 @@ export const AlbumMain = () => {
     album.nombreRoute == nameAlbum
   ))
   const a = albumid.canciones
-  const { setMusic,setPlay,play } = useContext(contexto)
+  const { setMusic,setPlay } = useContext(contexto)
   return (
-    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary lg:overflow-auto'>
-      <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 mobileLg:rounded-md'>
+    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto mobileLg:rounded-md'>
+      <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 mobileLg:rounded-md sticky top-0 right-0 pb-6 z-10'>
         <CardMain {...albumid} />
       </section>
-      <section className='p-6'>
+      <section className='px-6 pb-6 overflow-auto'>
         <table className='w-full'>
           <thead className='border-b border-white9 text-white9'>
             <tr>

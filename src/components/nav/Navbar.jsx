@@ -5,7 +5,7 @@ import { albums } from '../../helper/music/albums'
 export const Navbar = () => {
   const navigate = useNavigate()
   return (
-    <nav className='hidden lg:flex flex-col bg-black gap-2 col-start-1 col-end-3'>
+    <nav className='hidden lg:flex flex-col bg-black gap-2 col-start-1 col-end-3 overflow-hidden'>
       <section className='bg-secondary rounded-md p-6'>
         <div className='text-white9 font-semibold flex flex-col gap-6'>
           <NavLink to='/' className={({ isActive }) => isActive ? 'text-white' : ''}>
@@ -34,16 +34,16 @@ export const Navbar = () => {
         </NavLink>
         </div>
       </section>
-      <section className='bg-secondary flex-1 rounded-md p-6'>
+      <section className='bg-secondary flex-1 rounded-md overflow-auto'>
         <NavLink to='/albums' className={({ isActive }) => isActive ? 'text-white' : ''}>
-        <span className='flex gap-4 text-white9 font-semibold hover:text-white cursor-pointer transition-all'>
+        <span className='flex gap-4 text-white9 font-semibold hover:text-white cursor-pointer transition-all sticky top-0 right-0 bg-secondary px-6 pt-6 pb-3'>
           <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
           </svg>
           <h1>Albums</h1>
         </span>
         </NavLink>
-        <ul className='list-none mt-5 flex flex-col gap-2'>
+        <ul className='list-none flex flex-col gap-2 px-6 pb-6'>
           {
             albums.map((album)=>(
               <li onClick={()=>navigate(`/albums/${album.nombreRoute}`)} key={album.nombre}>
