@@ -6,39 +6,41 @@ export const AppContext = ({ children }) => {
   const [random, setRandom] = useState(false)
   const [repeat, setRepeat] = useState(false)
   const [volume, setVolume] = useState(100)
-  const [ likeSong, setLikeSong ] = useState([])
-  const [ musicTime,setMusicTime ] = useState(0)
-  const [ sliderTime,setSliderTime ] = useState(0)
+  const [likeSong, setLikeSong] = useState([])
+  const [musicTime, setMusicTime] = useState(0)
+  const [sliderTime, setSliderTime] = useState(0)
   const [music, setMusic] = useState({})
+  
   useEffect(() => {
-    (music.name) ? setPlay(true) : setPlay(false)
-    if(music.name){
-      localStorage.setItem('album',music.album.albumName)
-      localStorage.setItem('song',music.name)
+    if (music.name) {
+      localStorage.setItem('album', music.album.albumName)
+      localStorage.setItem('song', music.name)
     }
   }, [music])
-  useEffect(()=>{
-    if(localStorage.getItem('song')){
+  useEffect(() => {
     const album = localStorage.getItem('album')
     const song = localStorage.getItem('song')
-    const al = albums.find((a)=>a.nombre===album)
-    const s = al.canciones.find((m)=>m.name===song)
-    setMusic(s)
+    if (album && song) {
+      const al = albums.find( a => a.nombre == album)
+      const s = al.canciones.find((m) => m.name == song)
+      setMusic(s)
     }
-  },[])
-  useEffect(()=>{
-    if(likeSong.length!==0){
-    localStorage.setItem('favorites',JSON.stringify(likeSong))
+  }, [])
+  
+  useEffect(() => {
+    if (likeSong.length !== 0) {
+      localStorage.setItem('favorites', JSON.stringify(likeSong))
     }
-  },[likeSong])
-  useEffect(()=>{
-    if(localStorage.getItem('favorites')){
-    const favorites = JSON.parse(localStorage.getItem('favorites'))
-    setLikeSong(favorites)
+  }, [likeSong])
+  useEffect(() => {
+    if (localStorage.getItem('favorites')) {
+      const favorites = JSON.parse(localStorage.getItem('favorites'))
+      setLikeSong(favorites)
     }
-  },[])
+  }, [])
+  
   return (
-    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime,setMusicTime,sliderTime,setSliderTime }}>
+    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime }}>
       {children}
     </contexto.Provider>
   )

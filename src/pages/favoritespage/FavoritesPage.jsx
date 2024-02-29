@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { contexto } from '../../context/AppContext'
 import { CardFavorites } from './components'
 import { Navbar } from '../../components'
@@ -13,8 +13,8 @@ export const FavoritesPage = () => {
         <h1>Favoritos</h1>
         <ul>
           {
-            likeSong.map((song) => (
-              <li key={song.name}>
+            likeSong.map((song,index) => (
+              <li key={index}>
                 <CardFavorites {...song} />
               </li>
             ))

@@ -119,7 +119,7 @@ export const albums = [
         music: '/music/theStrokes/WhatEverHappened.mp3',
         duration:'2:49',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -128,7 +128,7 @@ export const albums = [
         music: '/music/theStrokes/Reptilia.mp3',
         duration:'3:35',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -137,7 +137,7 @@ export const albums = [
         music: '/music/theStrokes/AutomaticStop.mp3',
         duration:'3:21',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -146,7 +146,7 @@ export const albums = [
         music: '/music/theStrokes/12:51.mp3',
         duration:'2:27',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -155,7 +155,7 @@ export const albums = [
         music: '/music/theStrokes/YouTalkWayTooMuch.mp3',
         duration:'3:00',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -164,7 +164,7 @@ export const albums = [
         music: '/music/theStrokes/BetweenLove&Hate.mp3',
         duration:'2:58',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -173,7 +173,7 @@ export const albums = [
         music: '/music/theStrokes/MeetMeInTheBathroom.mp3',
         duration:'2:50',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -182,7 +182,7 @@ export const albums = [
         music: '/music/theStrokes/TheWayItIs.mp3',
         duration:'2:16',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -191,7 +191,7 @@ export const albums = [
         music: '/music/theStrokes/TheEndHasNoEnd.mp3',
         duration:'2:59',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },
@@ -200,7 +200,7 @@ export const albums = [
         music: '/music/theStrokes/ICantWin.mp3',
         duration:'2:28',
         album:{
-          albumName:'RoomOnFire',
+          albumName:'Room On Fire',
           albumImg:'/albums/RoomOnFire.jpeg',
         }
       },

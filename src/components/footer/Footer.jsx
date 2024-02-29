@@ -2,30 +2,30 @@ import { contexto } from '../../context/AppContext'
 import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn } from './components'
 import { useContext, useRef, useState, useEffect } from 'react'
 export const Footer = () => {
-  const { music, play, volume,setSliderTime } = useContext(contexto)
+  const { music, play, volume, setSliderTime } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
   const [durationSong, setDurationSong] = useState(0)
   const ref = useRef()
-  
+
   const time = formatTime(timeSong)
   const duration = formatTime(durationSong)
 
   useEffect(() => {
-    if (ref.current) {
       play ? ref.current.play() : ref.current.pause();
-      ref.current.volume = volume / 100;
-    }
-  }, [play, volume]);
+  }, [play,music])
+  useEffect(() => {
+    ref.current.volume = volume / 100;
+  }, [volume])
 
   useEffect(() => {
-    if(music.name){
-    ref.current.addEventListener('timeupdate', handleTimeUpdate)
-    ref.current.addEventListener('loadedmetadata', handleLoadedM)
-    setSliderTime(parseFloat(timeSong*100/durationSong))
-    return () => {
-      ref.current.removeEventListener('timeupdate', handleTimeUpdate)
-      ref.current.removeEventListener('loadedmetadata', handleLoadedM)
-    }
+    if (music.name) {
+      ref.current.addEventListener('timeupdate', handleTimeUpdate)
+      ref.current.addEventListener('loadedmetadata', handleLoadedM)
+      if (durationSong !== 0) setSliderTime(parseFloat(timeSong * 100 / durationSong))
+      return () => {
+        ref.current.removeEventListener('timeupdate', handleTimeUpdate)
+        ref.current.removeEventListener('loadedmetadata', handleLoadedM)
+      }
     }
   })
 
@@ -38,13 +38,13 @@ export const Footer = () => {
   }
 
   function handleTimeUpdate() {
-    setTimeSong(ref.current.currentTime)
+    if (ref.current) setTimeSong(ref.current.currentTime)
   }
   function handleLoadedM() {
-    setDurationSong(ref.current.duration)
+    if (ref.current) setDurationSong(ref.current.duration)
   }
-  function handleTime(e){
-    ref.current.currentTime=parseFloat(e.target.value*durationSong/100)
+  function handleTime(e) {
+    ref.current.currentTime = parseFloat(e.target.value * durationSong / 100)
   }
   return (
     <footer className='w-full bg-transparent sticky right-0 bottom-20 tablet:bottom-0 tablet:m-0'>
@@ -70,7 +70,7 @@ export const Footer = () => {
           </section>
           <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2'>
             <span>{time}</span>
-            <SliderMusic handle={handleTime}/>
+            <SliderMusic handle={handleTime} />
             <span>{duration}</span>
           </section>
         </main>

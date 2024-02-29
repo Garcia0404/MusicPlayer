@@ -9,7 +9,7 @@ export const AlbumMain = () => {
     album.nombreRoute == nameAlbum
   ))
   const a = albumid.canciones
-  const { setMusic } = useContext(contexto)
+  const { setMusic,setPlay,play } = useContext(contexto)
   return (
     <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary lg:overflow-auto'>
       <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 mobileLg:rounded-md'>
@@ -34,7 +34,7 @@ export const AlbumMain = () => {
             {
               a.map((music, index) => {
                 return (
-                  <tr key={index} onClick={() => setMusic(music)} className='hover:bg-grayMain cursor-pointer active:scale-[0.98] hover:scale-[1.02] transition-all'>
+                  <tr key={index} onClick={() => {setMusic(music),setPlay(true)}} className='hover:bg-grayMain cursor-pointer active:scale-[0.98] hover:scale-[1.02] transition-all'>
                     <td className='text-center text-white9 p-2 '>{index + 1}</td>
                     <td>{music.name}</td>
                     <td className='text-white9 hidden mobileLg:table-cell'>The Strokes</td>
