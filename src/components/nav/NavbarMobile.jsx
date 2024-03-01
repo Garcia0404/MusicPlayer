@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 export const NavbarMobile = () => {
   return (
     <nav className='tablet:hidden w-full bg-[rgba(0,0,0,0.8)] backdrop-blur-md flex justify-center sticky bottom-0 right-0'>
-      <div className='flex gap-8 py-2 mobileLg:p-4'>
+      <div className='flex gap-4 mobileLg:gap-8 py-2 mobileLg:p-4'>
         <NavLink to='/' className={({ isActive }) => isActive ? 'text-white' : 'text-white9'}>
           <div className='flex flex-col items-center'>
             <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">

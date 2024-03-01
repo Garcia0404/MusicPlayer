@@ -1,10 +1,12 @@
 import { contexto } from '../../context/AppContext'
-import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn } from './components'
+import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn,NextSong } from './components'
 import { useContext, useRef, useState, useEffect } from 'react'
+import { albums } from '../../helper/music/albums'
 export const Footer = () => {
   const { music, play, volume, setSliderTime } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
   const [durationSong, setDurationSong] = useState(0)
+  const [ indexSong,setIndexSong ] = useState(1)
   const ref = useRef()
 
   const time = formatTime(timeSong)
@@ -61,11 +63,7 @@ export const Footer = () => {
               </svg>
             </div>
             <PlayBtn />
-            <div className='hidden mobileLg:block'>
-              <svg className='fill-white9 h-5 w-5 hover:fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4l192 160L256 241V96c0-17.7 14.3-32 32-32s32 14.3 32 32V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V271l-11.5 9.6-192 160z" />
-              </svg>
-            </div>
+            <NextSong/>
             <RepeatBtn />
           </section>
           <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2'>
