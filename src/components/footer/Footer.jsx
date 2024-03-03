@@ -13,7 +13,6 @@ export const Footer = () => {
 
   useEffect(() => {
       play ? ref.current.play() : ref.current.pause();
-      console.log('play es',play)
   }, [play,music])
   useEffect(() => {
     ref.current.volume = volume / 100;
