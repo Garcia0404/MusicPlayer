@@ -50,10 +50,7 @@ export const AppContext = ({ children }) => {
       if (recent.length > 0) {
         const index = recent.findIndex((song) => song.name === music.name);
         if (index!==-1) {
-          const song = recent[index]
-          recent.splice(index,1)
-          const updatedRecent = [song, ...recent]
-          setRecent(updatedRecent)
+          return
         }
       }
       const updatedRecent = [music, ...recent]

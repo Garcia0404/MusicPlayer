@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { contexto } from '../../../context/AppContext'
 export const PlaySong = ({ song, listen }) => {
-  const { play, setPlay, music, setMusic } = useContext(contexto)
+  const { play, setPlay, music, setMusic,recent,setRecent } = useContext(contexto)
   const [startMusic, setStartMusic] = useState(listen)
   function handleClick() {
     setStartMusic(!startMusic)
@@ -12,7 +12,21 @@ export const PlaySong = ({ song, listen }) => {
   }
   useEffect(()=>{
     if (play&&song==music) setStartMusic(true)
+    if (music.name) {
+      if (recent.length > 0) {
+        const index = recent.findIndex((song) => song.name == music.name);
+        if (index!==-1) {
+          const song = recent[index]
+          recent.splice(index,1)
+          const updatedRecent = [song, ...recent]
+          setRecent(updatedRecent)
+        }
+      }
+    }
   },[])
+  useEffect(()=>{
+    if (play&&song==music) setStartMusic(true)
+  },[recent])
 
   useEffect(() => {
     if (song == music) {
