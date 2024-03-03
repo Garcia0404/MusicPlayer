@@ -13,7 +13,6 @@ export const Main = () => {
           <h2 className="text-xl font-semibold col-start-1 col-end-[-1]">Heard Recently</h2>
           {
             recent.map((song, index) => {
-              console.log(song)
               return <GeneralCard key={index} music={song} />
             })
           }
