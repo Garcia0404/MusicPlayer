@@ -1,28 +1,31 @@
 import { useContext, useEffect, useState } from 'react'
 import { contexto } from '../../../context/AppContext'
-export const PlaySong = (song) => {
+export const PlaySong = ({ song, listen }) => {
   const { play, setPlay, music, setMusic } = useContext(contexto)
-  const [startMusic, setStartMusic] = useState(false)
+  const [startMusic, setStartMusic] = useState(listen)
   function handleClick() {
     setStartMusic(!startMusic)
     setMusic(song)
-    if (startMusic) {
-      setPlay(true)
+    if(startMusic){
+      setPlay(false)
     }
-
   }
-  useEffect(() => {
-    if (music == song) {
-      startMusic? setPlay(true):setPlay(false)
-    }else{
-      setStartMusic(false)
-    }
-  }, [startMusic,music])
   useEffect(()=>{
-    play?setStartMusic(true):setStartMusic(false)
-  },[play])
+    if (play&&song==music) setStartMusic(true)
+  },[])
 
-
+  useEffect(() => {
+    if (song == music) {
+      if (startMusic) setPlay(true)
+    }else setStartMusic(false)
+  }, [music, startMusic])
+  
+  useEffect(()=>{
+    if (play && song==music){ 
+      setStartMusic(true)
+    }
+    if(!play && song==music) setStartMusic(false)
+  },[play,music])
   const changeStyle1 = startMusic ? 'hidden' : 'block'
   const changeStyle2 = startMusic ? 'block' : 'hidden'
   return (

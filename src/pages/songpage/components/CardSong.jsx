@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 export const CardSong = () => {

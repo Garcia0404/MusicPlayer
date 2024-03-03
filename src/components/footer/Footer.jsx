@@ -6,7 +6,6 @@ export const Footer = () => {
   const { music, play, volume, setSliderTime } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
   const [durationSong, setDurationSong] = useState(0)
-  const [ indexSong,setIndexSong ] = useState(1)
   const ref = useRef()
 
   const time = formatTime(timeSong)
@@ -14,6 +13,7 @@ export const Footer = () => {
 
   useEffect(() => {
       play ? ref.current.play() : ref.current.pause();
+      console.log('play es',play)
   }, [play,music])
   useEffect(() => {
     ref.current.volume = volume / 100;
