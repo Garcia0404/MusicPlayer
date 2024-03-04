@@ -2,11 +2,21 @@ import React, { useContext } from 'react'
 import { albums } from '../../../helper/music/albums'
 import { contexto } from '../../../context/AppContext'
 export const NextSong = () => {
-  const { music } = useContext(contexto)
-  function nextSong(){
+  const { music, setMusic, setPlay } = useContext(contexto)
+  function nextSong() {
     const album = music.album.albumName
-    const al = albums.find(a=>a.nombre==album)
-    return console.log(al.canciones)
+    const al = albums.find(a => a.nombre == album)
+    const indexAl = albums.findIndex(i => i.nombre == album)
+    const index = al.canciones.findIndex(a => a.name == music.name)
+    if (index < al.canciones.length - 1) {
+      setMusic(al.canciones[index + 1])
+      setPlay(true)
+    } else {
+      if (indexAl + 1 < albums.length) {
+        setMusic(albums[indexAl + 1].canciones[0])
+        setPlay(true)
+      } else return
+    }
   }
 
   return (
