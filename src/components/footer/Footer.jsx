@@ -1,8 +1,9 @@
 import { contexto } from '../../context/AppContext'
-import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn,NextSong, PreviousSong } from './components'
+import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn, NextSong, PreviousSong } from './components'
 import { useContext, useRef, useState, useEffect } from 'react'
+import { albums } from '../../helper/music/albums'
 export const Footer = () => {
-  const { music, play, volume, setSliderTime,repeat } = useContext(contexto)
+  const { music, setMusic, play, volume, setSliderTime, repeat } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
   const [durationSong, setDurationSong] = useState(0)
   const ref = useRef()
@@ -10,17 +11,17 @@ export const Footer = () => {
   const time = formatTime(timeSong)
   const duration = formatTime(durationSong)
 
-  useEffect(()=>{
-    if(repeat){
+  useEffect(() => {
+    if (repeat) {
       ref.current.loop = true
-    }else{
+    } else {
       ref.current.loop = false
     }
-  },[repeat])
+  }, [repeat])
 
   useEffect(() => {
-      play ? ref.current.play() : ref.current.pause();
-  }, [play,music])
+    play ? ref.current.play() : ref.current.pause();
+  }, [play, music])
   useEffect(() => {
     ref.current.volume = volume / 100;
   }, [volume])
@@ -43,6 +44,22 @@ export const Footer = () => {
     const timeCorrect = minutes + ':' + cero + seconds
     return timeCorrect
   }
+  function handleSongEnded() {
+    const album = localStorage.getItem('album')
+    const song = localStorage.getItem('song')
+    if (album && song) {
+      const al = albums.find(a => a.nombre == album)
+      const indexAl = albums.findIndex(a => a.nombre == album)
+      const index = al.canciones.findIndex((m) => m.name == song)
+      if (index < al.canciones.length - 1) {
+        setMusic(al.canciones[index + 1])
+      } else {
+        if (indexAl + 1 < albums.length) {
+          setMusic(albums[indexAl + 1].canciones[0])
+        } else setMusic(albums[0].canciones[0])
+      }
+    }
+  }
 
   function handleTimeUpdate() {
     if (ref.current) setTimeSong(ref.current.currentTime)
@@ -62,9 +79,9 @@ export const Footer = () => {
         <main className='flex ms-auto tablet:mx-0 flex-col gap-1 col-start-4 col-end-8'>
           <section className='flex items-center gap-3 mobileLg:gap-4 justify-center'>
             <RandomBtn />
-            <PreviousSong/>
+            <PreviousSong />
             <PlayBtn />
-            <NextSong/>
+            <NextSong />
             <RepeatBtn />
           </section>
           <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2'>
@@ -76,7 +93,7 @@ export const Footer = () => {
         <article className='hidden tablet:flex items-center gap-3 justify-center col-start-8 col-end-11'>
           <MuteBtn />
           <Slider />
-          <audio ref={ref} autoPlay src={music.music}></audio>
+          <audio onEnded={handleSongEnded} ref={ref} autoPlay src={music.music}></audio>
         </article>
 
       </div>

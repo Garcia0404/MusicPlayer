@@ -11,7 +11,7 @@ export const PlaySong = ({ song, listen }) => {
     }
   }
   useEffect(()=>{
-    if (play&&song==music) setStartMusic(true)
+    if (play&&song.name==music.name) setStartMusic(true)
     if (music.name) {
       if (recent.length > 0) {
         const index = recent.findIndex((song) => song.name == music.name);
@@ -33,6 +33,12 @@ export const PlaySong = ({ song, listen }) => {
       if (startMusic) setPlay(true)
     }else setStartMusic(false)
   }, [music, startMusic])
+
+  useEffect(()=>{
+    if(song == music){
+      if (play) setStartMusic(true)
+    }
+  },[play])
   
   useEffect(()=>{
     if (play && song==music){ 

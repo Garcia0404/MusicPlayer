@@ -21,7 +21,7 @@ export default {
         'tablet': '610px',
       },
       gridTemplateColumns: {
-        'mainH': 'repeat(auto-fill, minmax(200px, 1fr))', // Cambia los valores según sea necesario
+        'mainH': 'repeat(auto-fill, minmax(200px, 1fr))',
       },
     },
   },
