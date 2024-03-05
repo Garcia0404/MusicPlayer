@@ -71,7 +71,7 @@ export const Footer = () => {
     ref.current.currentTime = parseFloat(e.target.value * durationSong / 100)
   }
   return (
-    <footer className='w-full bg-transparent sticky right-0 bottom-20 tablet:bottom-0 tablet:m-0'>
+    <footer className='w-full bg-transparent sticky right-0 bottom-20 tablet:bottom-0 tablet:m-0 z-10'>
       <div className='flex tablet:grid grid-cols-10 items-center tablet:mx-0 bg-red9 tablet:bg-black rounded-lg p-4 mx-2'>
         <article className='flex items-center gap-3 col-start-1 col-end-4'>
           <CardSong />
