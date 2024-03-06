@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { albums } from '../../../helper/music/albums'
 import { contexto } from '../../../context/AppContext'
 export const NextSong = () => {
-  const { music, setMusic, setPlay } = useContext(contexto)
+  const { music, setMusic, setPlay,random } = useContext(contexto)
   function nextSong() {
+    if(!random){
     const album = music.album.albumName
     const al = albums.find(a => a.nombre == album)
     const indexAl = albums.findIndex(i => i.nombre == album)
@@ -16,6 +17,16 @@ export const NextSong = () => {
         setMusic(albums[indexAl + 1].canciones[0])
         setPlay(true)
       } else return
+    }}else{
+      function randomNumber(n){
+        const number = Math.floor(Math.random()*n)
+        return number
+      }
+      let n = albums[randomNumber(6)]
+      const length = n.canciones.length
+      n = n.canciones[randomNumber(length)]
+      setMusic(n)
+      setPlay(true)
     }
   }
 

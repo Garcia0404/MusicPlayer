@@ -3,7 +3,7 @@ import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn, 
 import { useContext, useRef, useState, useEffect } from 'react'
 import { albums } from '../../helper/music/albums'
 export const Footer = () => {
-  const { music, setMusic, play, volume, setSliderTime, repeat } = useContext(contexto)
+  const { music, setMusic, play, volume, setSliderTime, repeat, random } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
   const [durationSong, setDurationSong] = useState(0)
   const ref = useRef()
@@ -25,6 +25,7 @@ export const Footer = () => {
   useEffect(() => {
     ref.current.volume = volume / 100;
   }, [volume])
+
   useEffect(() => {
     if (music.name) {
       ref.current.addEventListener('timeupdate', handleTimeUpdate)
@@ -45,6 +46,7 @@ export const Footer = () => {
     return timeCorrect
   }
   function handleSongEnded() {
+    if(!random){
     const album = localStorage.getItem('album')
     const song = localStorage.getItem('song')
     if (album && song) {
@@ -58,9 +60,17 @@ export const Footer = () => {
           setMusic(albums[indexAl + 1].canciones[0])
         } else setMusic(albums[0].canciones[0])
       }
+    }}else{
+      let n = albums[randomNumber(6)]
+      const length = n.canciones.length
+      n = n.canciones[randomNumber(length)]
+      setMusic(n)
     }
   }
-
+  function randomNumber(n){
+    const number = Math.floor(Math.random()*n)
+    return number
+  }
   function handleTimeUpdate() {
     if (ref.current) setTimeSong(ref.current.currentTime)
   }

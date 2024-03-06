@@ -8,6 +8,7 @@ export const RandomBtn = () => {
   function handleClick (){
     setRandom(!random)
   }
+
   return (
     <span onClick={handleClick} className='hidden mobileLg:block active:scale-75 transition-all relative'>
       <svg className={`${changeIcon} w-4 h-4 hover:scale-110 cursor-pointer transition-all`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
