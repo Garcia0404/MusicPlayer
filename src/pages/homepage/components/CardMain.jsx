@@ -3,7 +3,7 @@ import { Circle } from '../../../components'
 export const CardMain = (albumid) => {
   return (
     <article className='w-full flex flex-col mobileLg:flex-row gap-6 mobileLg:items-center'>
-      <div className='w-40 h-40 mobileLg:w-auto bg-grayMain rounded overflow-hidden shadow-xl'>
+      <div className='mx-auto tablet:mx-0 w-40 h-40 mobileLg:w-auto bg-grayMain rounded overflow-hidden shadow-xl'>
         <img className='w-40 h-40 mx-auto' src={albumid.image} alt={albumid.nombre} />
       </div>
       <div className='overflow-hidden'>

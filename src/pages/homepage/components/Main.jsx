@@ -19,22 +19,19 @@ export const Main = () => {
         <h1 className='font-bold text-3xl mb-3'>Welcome !</h1>
         <main className="grid grid-cols-2 mobileLg:grid-cols-mainH gap-3">
           {
-            songs.map((song,index) => (
+            songs.map((song, index) => (
               <Card song={albums[song[0]].canciones[song[1]]} key={index} listen={false} />
             ))
           }
         </main>
       </section>
-      {(recent.length !== 0) && (
-        <section className='p-6 text-white grid gap-2 mobileLg:grid-cols-mainH'>
-          <h2 className="text-xl font-semibold col-start-1 col-end-[-1]">Heard Recently</h2>
-          {
-            recent.map((song, index) => {
-              return <GeneralCard key={index} music={song} />
-            })
-          }
-        </section>
-      )}
+      <section className='p-6 text-white grid gap-2 mobileLg:grid-cols-mainH'>
+        <h2 className="text-xl font-semibold col-start-1 col-end-[-1]">Heard Recently</h2>
+        {recent.length!==0 && recent.map((song, index) => (
+              <GeneralCard key={index} music={song} />
+            ))
+        }
+      </section>
     </main>
   )
 }
