@@ -23,6 +23,9 @@ export default {
       gridTemplateColumns: {
         'mainH': 'repeat(auto-fill, minmax(200px, 1fr))',
       },
+      backgroundImage: {
+        'hero-pattern': "url('/img/the-strokes.webp')",
+      }
     },
   },
   plugins: [],

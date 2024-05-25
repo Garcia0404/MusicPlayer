@@ -4,12 +4,10 @@ import { albums } from '../../helper/music/albums'
 export const AlbumsPage = () => {
   const navigate = useNavigate()
   return (
-    <div className='flex lg:grid grid-cols-6 flex-1 w-full gap-2 bg-black tablet:p-2 lg:overflow-auto'>
-      <Navbar />
       <div className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md border-white'>
         <header className='relative w-full flex items-center justify-between flex-col bg-black'>
           <div className='max-h-[270px] overflow-hidden'>
-            <img className='tablet:object-none object-cover tablet:object-bottom w-full h-auto' src='/img/The-strokes.jpg' alt="TheStrokes" />
+            <img className='object-cover w-full h-auto' src='/img/the-strokes.webp' alt="TheStrokes" />
           </div>
           <h1 className='absolute bottom-10 left-0 text-white text-5xl mobileLg:text-7xl tablet:text-8xl font-bold p-5'>The Strokes</h1>
         </header>
@@ -27,6 +25,6 @@ export const AlbumsPage = () => {
           </div>
         </main>
       </div>
-    </div>
+
   )
 }
