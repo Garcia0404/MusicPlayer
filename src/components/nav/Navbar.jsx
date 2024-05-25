@@ -23,7 +23,6 @@ export const Navbar = () => {
               </li>
             ))
           }
-
         </ul>
 
       </section>
