@@ -1,51 +1,46 @@
 import { useContext, useEffect, useState } from 'react'
 import { contexto } from '../../../context/AppContext'
 export const PlaySong = ({ song, listen }) => {
-  const { play, setPlay, music, setMusic,recent,setRecent } = useContext(contexto)
+  const { play, setPlay, music, setMusic, recent, setRecent } = useContext(contexto)
   const [startMusic, setStartMusic] = useState(listen)
   function handleClick() {
     setStartMusic(!startMusic)
     setMusic(song)
-    if(startMusic){
+    if (startMusic) {
       setPlay(false)
     }
   }
-  useEffect(()=>{
-    if (play&&song.name==music.name) setStartMusic(true)
+  useEffect(() => {
+    if (play && song.name == music.name) setStartMusic(true)
     if (music.name) {
       if (recent.length > 0) {
         const index = recent.findIndex((song) => song.name == music.name);
-        if (index!==-1) {
+        if (index !== -1) {
           const song = recent[index]
-          recent.splice(index,1)
+          recent.splice(index, 1)
           const updatedRecent = [song, ...recent]
           setRecent(updatedRecent)
         }
       }
     }
-  },[])
-  useEffect(()=>{
-    if (play&&song==music) setStartMusic(true)
-  },[recent])
+  }, [])
+  useEffect(() => {
+    if (play && song.name == music.name) setStartMusic(true)
+  }, [recent])
 
   useEffect(() => {
-    if (song == music) {
+    if (song.name == music.name) {
       if (startMusic) setPlay(true)
-    }else setStartMusic(false)
+    } else setStartMusic(false)
   }, [music, startMusic])
 
-  useEffect(()=>{
-    if(song == music){
-      if (play) setStartMusic(true)
-    }
-  },[play])
-  
-  useEffect(()=>{
-    if (play && song==music){ 
+
+  useEffect(() => {
+    if (play && song.name == music.name) {
       setStartMusic(true)
     }
-    if(!play && song==music) setStartMusic(false)
-  },[play,music])
+    if (!play && song.name == music.name) setStartMusic(false)
+  }, [play, music])
   const changeStyle1 = startMusic ? 'hidden' : 'block'
   const changeStyle2 = startMusic ? 'block' : 'hidden'
   return (
