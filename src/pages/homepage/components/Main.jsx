@@ -26,7 +26,7 @@ export const Main = () => {
         </main>
       </section>
       {(recent.length !== 0) && (
-        <section className='p-6 text-white grid gap-2 grid-cols-2 mobileLg:grid-cols-mainH'>
+        <section className='p-6 text-white grid gap-2 mobileLg:grid-cols-mainH'>
           <h2 className="text-xl font-semibold col-start-1 col-end-[-1]">Heard Recently</h2>
           {
             recent.map((song, index) => {
