@@ -4,7 +4,7 @@ export const AppRouterD = () => {
 
   return (
     <Routes>
-      <Route path='/*' element={<HomePage/>}/>
+      <Route path='/' element={<HomePage/>}/>
       <Route path='/albums' element={<AlbumsPage/>}/>
       <Route path='/albums/:name' element={<AlbumPage/>}/>
       <Route path='/albums/:name/:nameSong' element={<SongPage/>}/>

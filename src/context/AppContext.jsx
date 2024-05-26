@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { albums } from '../helper/music/albums'
+import { useLocation } from "react-router-dom";
 export const contexto = createContext()
 export const AppContext = ({ children }) => {
+  const location = useLocation()
   const [play, setPlay] = useState(false)
   const [random, setRandom] = useState(false)
   const [repeat, setRepeat] = useState(false)
@@ -11,7 +13,14 @@ export const AppContext = ({ children }) => {
   const [sliderTime, setSliderTime] = useState(0)
   const [music, setMusic] = useState({})
   const [recent, setRecent] = useState([])
-
+  const [showFooter,setShowFooter] = useState(true)
+ 
+  useEffect(() => {
+    const isAlbumPage = /^\/albums\/[^\/]+\/[^\/]+$/.test(location.pathname);
+    if (!isAlbumPage) {
+      setShowFooter(true);
+    }
+  }, [location.pathname]);
   useEffect(() => {
     if (music.name) {
       localStorage.setItem('album', music.album.albumName)
@@ -67,7 +76,7 @@ export const AppContext = ({ children }) => {
   }, [music]);
 
   return (
-    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent }}>
+    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent,showFooter,setShowFooter}}>
       {children}
     </contexto.Provider>
   )
