@@ -40,7 +40,7 @@ export const NavLinksMobile = ({ route, name }) => {
     <NavLink to={route} className={({ isActive }) => isActive ? 'text-white' : 'text-white9'}>
       <div className='flex flex-col items-center'>
         <Svg name={name}/>
-        <span>Home</span>
+        <span>{name}</span>
       </div>
     </NavLink>
   )
