@@ -3,6 +3,8 @@ import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { contexto } from '../../../context/AppContext'
 import { motion } from 'framer-motion'
+import { SliderMusic, PlayBtn, RandomBtn, PreviousSong, NextSong, RepeatBtn, LikeBtn } from '/src/components'
+import { formatTime } from '/src/components/footer/functions'
 
 const variants = {
   initial: {
@@ -18,7 +20,40 @@ const variants = {
 export const CardSong = () => {
   const songname = useParams().nameSong
   const navigate = useNavigate()
-  const { music, setShowFooter } = useContext(contexto)
+  const { music, play, setSliderTime, setShowFooter, ref } = useContext(contexto)
+  const [timeSong, setTimeSong] = useState(0)
+  const [durationSong, setDurationSong] = useState(0)
+  const time = formatTime(timeSong)
+  const duration = formatTime(durationSong)
+
+  useEffect(() => {
+    if (ref.current) {
+      play ? ref.current.play() : ref.current.pause();
+    }
+  }, [play, music])
+
+  useEffect(() => {
+    if (ref.current) {
+      function handleTimeUpdate() {
+        setTimeSong(ref.current.currentTime)
+      }
+      function handleLoadedM() {
+        setDurationSong(ref.current.duration)
+      }
+      ref.current.addEventListener('timeupdate', handleTimeUpdate)
+      ref.current.addEventListener('loadedmetadata', handleLoadedM)
+      if (durationSong !== 0) setSliderTime(parseFloat(timeSong * 100 / durationSong))
+      return () => {
+        ref.current.removeEventListener('timeupdate', handleTimeUpdate)
+        ref.current.removeEventListener('loadedmetadata', handleLoadedM)
+      }
+    }
+  })
+
+
+  function handleTime(e) {
+    if (ref.current) ref.current.currentTime = parseFloat(e.target.value * durationSong / 100)
+  }
   useEffect(() => {
     setShowFooter(false)
   }, [])
@@ -41,9 +76,26 @@ export const CardSong = () => {
                 <img className='mx-auto rounded-md' src={music.album.albumImg} alt={music.name} />
               </div>
               <div>
-                <div className='flex flex-col'>
-                  <span className='text-lg font-semibold'>{music.name}</span>
-                  <span className='font-light text-gray-300'>The Strokes</span>
+                <div className='flex justify-between items-center'>
+                  <div className='flex flex-col'>
+                    <span className='text-lg font-semibold'>{music.name}</span>
+                    <span className='font-light text-gray-300'>The Strokes</span>
+                  </div>
+                  <LikeBtn/>
+                </div>
+                <div className='flex flex-col gap-2 mt-4'>
+                  <section className='text-white font-extralight text-sm flex items-center gap-2'>
+                    <span>{time}</span>
+                    <SliderMusic handle={handleTime} />
+                    <span>{duration}</span>
+                  </section>
+                  <div className='flex items-center justify-around w-40 mx-auto'>
+                    <RandomBtn />
+                    <PreviousSong />
+                    <PlayBtn />
+                    <NextSong />
+                    <RepeatBtn />
+                  </div>
                 </div>
               </div>
             </article>

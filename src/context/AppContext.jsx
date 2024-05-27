@@ -1,9 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState,useRef } from "react";
 import { albums } from '../helper/music/albums'
 import { useLocation } from "react-router-dom";
 export const contexto = createContext()
 export const AppContext = ({ children }) => {
   const location = useLocation()
+  const ref = useRef(null)
   const [play, setPlay] = useState(false)
   const [random, setRandom] = useState(false)
   const [repeat, setRepeat] = useState(false)
@@ -76,7 +77,7 @@ export const AppContext = ({ children }) => {
   }, [music]);
 
   return (
-    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent,showFooter,setShowFooter}}>
+    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent,showFooter,setShowFooter,ref}}>
       {children}
     </contexto.Provider>
   )

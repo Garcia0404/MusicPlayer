@@ -143,7 +143,7 @@ export const albums = [
       },
       { 
         name: '12:51' ,
-        music: '/music/theStrokes/12:51.mp3',
+        music: '/music/theStrokes/12_51.mp3',
         duration:'2:27',
         album:{
           albumName:'Room On Fire',

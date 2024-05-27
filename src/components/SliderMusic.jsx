@@ -1,8 +1,14 @@
 import { useContext } from "react";
 import { contexto } from "../context/AppContext";
 
-export const SliderMusic = ({handle}) => {
-  const { sliderTime } = useContext(contexto)
+export const SliderMusic = () => {
+  const { sliderTime,ref } = useContext(contexto)
+  function handleTime(e) {
+    if(ref.current) {
+      const durationSong = ref.current.duration
+      ref.current.currentTime = parseFloat(e.target.value * durationSong / 100)
+    }
+  }
 
   return (
     <div className='flex-1'>
@@ -38,7 +44,7 @@ export const SliderMusic = ({handle}) => {
           min={0} 
           max={100} 
           value={sliderTime} 
-          onChange={handle} 
+          onChange={handleTime} 
           style={{ width: '100%', height: '5px', backgroundColor: '#ddd', borderRadius: '5px', outline: 'none', appearance: 'none', cursor: 'pointer'}}
         />
       </label>
