@@ -1,3 +1,5 @@
+import { transform } from 'framer-motion';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -14,6 +16,15 @@ export default {
         'white9': '#9a9a9a',
         'greenMain': '#1FDF64',
         'red9': '#640101'
+      },
+      keyframes:{
+        marquee:{
+          '0%':{transform:'translateX(100%)'},
+          '100%':{transform:'translateX(-100%)'}
+        }
+      },
+      animation:{
+        marquee:'marquee 5s linear infinite'
       },
       screens: {
         'mobile': '360px',

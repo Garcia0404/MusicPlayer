@@ -14,8 +14,8 @@ export const CardSong = () => {
           className='flex items-center gap-3'
           onClick={() => { navigate(`/albums/${music.album.albumName.replace(/\s+/g, '')}/${music.name.replace(/\s+/g, '')}`); setShowFooter(false) }}>
           <img className='mobileLg:w-14 mobileLg:h-14 rounded w-10 h-10' src={music?.album?.albumImg} alt={music?.album?.albumName} />
-          <div className='flex flex-col text-white justify-center w-20 gap-1'>
-            <marquee className='text-sm' behavior="scroll" direction="left" scrollamount="3">{music.name}</marquee>
+          <div className='flex flex-col text-white justify-center w-20 gap-1 overflow-hidden'>
+            <div className='text-sm animate-marquee overflow-hidden whitespace-nowrap'>{music.name}</div>
             <span className='font-extralight text-xs text-nowrap'>The Strokes</span>
           </div>
         </div>

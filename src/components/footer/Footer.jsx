@@ -113,7 +113,6 @@ export const Footer = () => {
                 <Slider />
                 <audio onEnded={handleSongEnded} ref={ref} autoPlay src={music.music}></audio>
               </article>
-
             </div>
           </motion.footer>
         )

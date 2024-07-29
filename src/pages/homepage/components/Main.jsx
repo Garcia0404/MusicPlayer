@@ -54,7 +54,7 @@ export const Main = () => {
         <h2 className="text-xl font-semibold col-start-1 col-end-[-1]">Heard Recently</h2>
         {recent.length !== 0 && recent.map((song, index) => (
           <GeneralCard key={index} music={song} />
-        ))
+        )) 
         }
       </section>
     </main>
