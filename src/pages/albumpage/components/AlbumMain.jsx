@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { CardMain } from '../../homepage/components'
-import { albums } from '../../../helper/music/albums'
 import { contexto } from '../../../context/AppContext'
 import { useParams } from 'react-router-dom'
 export const AlbumMain = () => {
+  const {data} = useContext(contexto)
   const nameAlbum = useParams().name
-  const albumid = albums.find((album) => (
+  const albumid = data.find((album) => (
     album.nombreRoute == nameAlbum
   ))
   const a = albumid.canciones

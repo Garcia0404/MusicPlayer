@@ -1,12 +1,11 @@
 import { contexto } from '../../context/AppContext'
-import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn, NextSong, PreviousSong,LikeBtn } from './components'
+import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn, NextSong, PreviousSong } from './components'
 import { useContext, useState, useEffect } from 'react'
-import { albums } from '../../helper/music/albums'
 import { motion } from 'framer-motion'
 import { variants } from '../../variants/variants'
 import { formatTime } from './functions'
 export const Footer = () => {
-  const { music, setMusic, play, volume, setSliderTime, repeat, random, showFooter, ref } = useContext(contexto)
+  const { music, setMusic, play, volume, setSliderTime, repeat, random, showFooter, ref,data } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
   const [durationSong, setDurationSong] = useState(0)
   const style = showFooter ? 'block' : 'hidden'
@@ -54,19 +53,19 @@ export const Footer = () => {
       const album = localStorage.getItem('album')
       const song = localStorage.getItem('song')
       if (album && song) {
-        const al = albums.find(a => a.nombre == album)
-        const indexAl = albums.findIndex(a => a.nombre == album)
+        const al = data.find(a => a.nombre == album)
+        const indexAl = data.findIndex(a => a.nombre == album)
         const index = al.canciones.findIndex((m) => m.name == song)
         if (index < al.canciones.length - 1) {
           setMusic(al.canciones[index + 1])
         } else {
-          if (indexAl + 1 < albums.length) {
-            setMusic(albums[indexAl + 1].canciones[0])
-          } else setMusic(albums[0].canciones[0])
+          if (indexAl + 1 < data.length) {
+            setMusic(data[indexAl + 1].canciones[0])
+          } else setMusic(data[0].canciones[0])
         }
       }
     } else {
-      let n = albums[randomNumber(6)]
+      let n = data[randomNumber(6)]
       const length = n.canciones.length
       n = n.canciones[randomNumber(length)]
       setMusic(n)

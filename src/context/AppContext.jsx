@@ -1,11 +1,13 @@
-import { createContext, useEffect, useState,useRef } from "react";
-import { albums } from '../helper/music/albums'
+import { createContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { fetcher } from "../helper/fetch";
+import useSWR from "swr";
 export const contexto = createContext()
 export const AppContext = ({ children }) => {
   const location = useLocation()
   const ref = useRef(null)
   const [play, setPlay] = useState(false)
+  const [ allLoaded,setAllLoaded ] = useState(false)
   const [random, setRandom] = useState(false)
   const [repeat, setRepeat] = useState(false)
   const [volume, setVolume] = useState(100)
@@ -14,8 +16,9 @@ export const AppContext = ({ children }) => {
   const [sliderTime, setSliderTime] = useState(0)
   const [music, setMusic] = useState({})
   const [recent, setRecent] = useState([])
-  const [showFooter,setShowFooter] = useState(true)
- 
+  const [showFooter, setShowFooter] = useState(true)
+  const { data, error } = useSWR('/', fetcher)
+
   useEffect(() => {
     const isAlbumPage = /^\/albums\/[^\/]+\/[^\/]+$/.test(location.pathname);
     if (!isAlbumPage) {
@@ -31,19 +34,11 @@ export const AppContext = ({ children }) => {
   useEffect(() => {
     const album = localStorage.getItem('album')
     const song = localStorage.getItem('song')
-    if (album && song) {
-      const al = albums.find(a => a.nombre == album)
-      const s = al.canciones.find((m) => m.name == song)
+    if (album && song && data) {
+      const al = data.find(a => a.nombre === album)
+      const s = al.canciones.find((m) => m.name === song)
       setMusic(s)
     }
-  }, [])
-
-  useEffect(() => {
-    if (likeSong.length !== 0) {
-      localStorage.setItem('favorites', JSON.stringify(likeSong))
-    }
-  }, [likeSong])
-  useEffect(() => {
     if (localStorage.getItem('favorites')) {
       const favorites = JSON.parse(localStorage.getItem('favorites'))
       setLikeSong(favorites)
@@ -52,14 +47,19 @@ export const AppContext = ({ children }) => {
       const updateRecent = JSON.parse(localStorage.getItem('recents'))
       setRecent(updateRecent)
     }
-
   }, [])
+
+  useEffect(() => {
+    if (likeSong.length !== 0) {
+      localStorage.setItem('favorites', JSON.stringify(likeSong))
+    }
+  }, [likeSong])
 
   useEffect(() => {
     if (music.name) {
       if (recent.length > 0) {
         const index = recent.findIndex((song) => song.name === music.name);
-        if (index!==-1) {
+        if (index !== -1) {
           return
         }
       }
@@ -77,7 +77,7 @@ export const AppContext = ({ children }) => {
   }, [music]);
 
   return (
-    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent,showFooter,setShowFooter,ref}}>
+    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data,error,allLoaded,setAllLoaded }}>
       {children}
     </contexto.Provider>
   )

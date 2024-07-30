@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
-import { CardAlbum, Navbar } from '../../components'
-import { albums } from '../../helper/music/albums'
+import { CardAlbum } from '../../components'
+import { useContext } from 'react'
+import { contexto } from '../../context/AppContext'
 export const AlbumsPage = () => {
+  const { data } = useContext(contexto)
   const navigate = useNavigate()
   return (
       <div className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md border-white'>
@@ -16,7 +18,7 @@ export const AlbumsPage = () => {
           <h2 className='text-white text-3xl z-[2] font-medium'>Albums</h2>
           <div className='z-[2]'>
             {
-              albums.map((album) => (
+              data.map((album) => (
                 <div onClick={() => navigate(`/albums/${album.nombreRoute}`)} key={album.nombre}>
                   <CardAlbum {...album} />
                 </div>

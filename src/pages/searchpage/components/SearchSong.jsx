@@ -1,8 +1,9 @@
-import React from 'react'
-import { albums } from '../../../helper/music/albums'
+import React, { useContext } from 'react'
 import { GeneralCard } from '../../homepage/components'
+import { contexto } from '../../../context/AppContext';
 export const SearchSong = ({ nameSong,submit }) => {
-  const music = albums.map((album) => {
+  const { data } = useContext(contexto)
+  const music = data.map((album) => {
     const song = album.canciones.find(song => song.name.trim().toLowerCase() === nameSong.trim().toLowerCase());
     if (song) {
       return song;
