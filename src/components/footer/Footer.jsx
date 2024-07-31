@@ -85,7 +85,7 @@ export const Footer = () => {
             animate="enter"
             className={`${style} w-full bg-transparent sticky right-0 bottom-20 tablet:bottom-0 tablet:m-0 z-10`}
           >
-            <div className='flex tablet:grid grid-cols-10 items-center tablet:mx-0 bg-red9 tablet:bg-black rounded-lg p-4 mx-2'>
+            <div className='flex tablet:grid grid-cols-10 items-center tablet:mx-0 bg-red9 tablet:bg-black rounded-lg p-3 mx-2'>
               <CardSong />
               <main className='flex ms-auto tablet:mx-0 flex-col gap-1 col-start-4 col-end-8'>
                 <section className='flex items-center gap-3 mobileLg:gap-4 justify-center'>

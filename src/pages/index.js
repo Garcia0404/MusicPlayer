@@ -1,4 +1,5 @@
 export * from './homepage/HomePage'
+export * from './homepage/components/LoadingHomepage'
 export * from './searchpage/SearchPage'
 export * from './router/AppRouterD'
 export * from './albumpage/AlbumPage'

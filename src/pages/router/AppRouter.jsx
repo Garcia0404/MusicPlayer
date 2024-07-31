@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, SearchPage, AppRouterD, FavoritesPage } from '..'
+import { HomePage, SearchPage, AppRouterD, FavoritesPage,LoadingHomepage } from '..'
 import { Footer, NavbarMobile, Navbar, Loading } from '../../components'
 import { useContext } from 'react'
 import { contexto } from '../../context/AppContext'
@@ -21,7 +21,7 @@ export const AppRouter = () => {
         <Footer />
         <NavbarMobile />
       </div>:
-      <div className='text-white'>Cargando...</div>
+      <LoadingHomepage/>
       }
       <Loading/>
     </>

@@ -70,7 +70,7 @@ export const CardSong = () => {
               <svg className="size-6 stroke-white absolute top-0 left-0 m-4 cursor-pointer" onClick={() => { setShowFooter(true); navigate('/') }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
               </svg>
-              <span className='flex justify-center font-extralight'>listening to the album</span>
+              <span className='flex justify-center font-extralight mt-4'>listening to the album</span>
               <h2 className='text-center font-semibold'>{music.album.albumName}</h2>
               <div className='rounded-md overflow-hidden my-8 h-min max-w-[450px] max-h-[450px] mx-auto'>
                 <img className='mx-auto rounded-md' width='auto' height='full' src={music.album.albumImg} alt={music.name} />
@@ -89,7 +89,7 @@ export const CardSong = () => {
                     <SliderMusic handle={handleTime} />
                     <span>{duration}</span>
                   </section>
-                  <div className='flex items-center justify-around w-40 mx-auto'>
+                  <div className='flex items-center justify-around w-40 mx-auto scale-125 mt-2'>
                     <RandomBtn />
                     <PreviousSong />
                     <PlayBtn />
