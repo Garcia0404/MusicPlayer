@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, useRef } from "react";
+import { createContext, useEffect, useState, useRef, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { fetcher } from "../helper/fetch";
 import useSWR from "swr";
@@ -82,3 +82,10 @@ export const AppContext = ({ children }) => {
     </contexto.Provider>
   )
 }
+export const useAppContext = () => {
+  const context = useContext(contexto);
+  if (!context) {
+    throw new Error('useAppContext must be used within an AppProvider');
+  }
+  return context;
+};
