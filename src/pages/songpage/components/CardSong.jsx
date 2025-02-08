@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { contexto } from '../../../context/AppContext'
 import { motion } from 'framer-motion'
 import { SliderMusic, PlayBtn, RandomBtn, PreviousSong, NextSong, RepeatBtn, LikeBtn } from '/src/components'
-import { formatTime } from '/src/components/footer/functions'
+import { formatTime } from '../../../utils/formatTime'
 
 const variants = {
   initial: {

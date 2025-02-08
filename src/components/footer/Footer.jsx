@@ -3,9 +3,10 @@ import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn, 
 import { useContext, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { variants } from '../../variants/variants'
-import { formatTime } from './functions'
+import { randomNumber } from "../../utils/randomNumber"
+import { formatTime } from "../../utils/formatTime"
 export const Footer = () => {
-  const { music, setMusic, play, volume, setSliderTime, repeat, random, showFooter, ref,data } = useContext(contexto)
+  const { music, setMusic, play, volume, setSliderTime, repeat, random, showFooter, ref, data } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
   const [durationSong, setDurationSong] = useState(0)
   const style = showFooter ? 'block' : 'hidden'
@@ -71,10 +72,6 @@ export const Footer = () => {
       setMusic(n)
     }
   }
-  function randomNumber(n) {
-    const number = Math.floor(Math.random() * n)
-    return number
-  }
   return (
     <>
       {
@@ -103,7 +100,7 @@ export const Footer = () => {
                 </section>
                 <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2 max-w-3xl tablet:w-full'>
                   <span>{time}</span>
-                  <SliderMusic/>
+                  <SliderMusic />
                   <span>{duration}</span>
                 </section>
               </main>
