@@ -12,8 +12,6 @@ export const HomePage = () => {
       setPlay(false)
     }
   }
-  console.log (audioRef.current.currentTime)
-  console.log(audioRef.current.duration)
   return (
     <div>
       <h1>musica</h1>

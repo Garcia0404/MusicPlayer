@@ -7,7 +7,6 @@ export const AlbumsPage = () => {
   const { data } = useContext(contexto)
   const { src,loading,error } = useCachedImage('/img/the-strokes.webp')
   const navigate = useNavigate()
-  console.log('albums montado')
   return (
       <div className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md border-white'>
         <header className='relative w-full flex items-center justify-between flex-col bg-black'>

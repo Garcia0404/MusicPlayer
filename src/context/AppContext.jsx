@@ -18,7 +18,6 @@ export const AppContext = ({ children }) => {
   const [recent, setRecent] = useState([])
   const [showFooter, setShowFooter] = useState(true)
   const { data, error } = useSWR('/', fetcher)
-
   useEffect(() => {
     const isAlbumPage = /^\/albums\/[^\/]+\/[^\/]+$/.test(location.pathname);
     if (!isAlbumPage) {

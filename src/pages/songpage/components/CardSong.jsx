@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useContext, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { contexto } from '../../../context/AppContext'
 import { motion } from 'framer-motion'
 import { SliderMusic, PlayBtn, RandomBtn, PreviousSong, NextSong, RepeatBtn, LikeBtn } from '/src/components'
@@ -60,7 +60,7 @@ export const CardSong = () => {
   return (
     <>
       {
-        music.name && (
+        music.name ? (
           <motion.main
             variants={variants}
             initial="initial"
@@ -100,7 +100,7 @@ export const CardSong = () => {
               </div>
             </article>
           </motion.main>
-        )
+        ):<Navigate to="/"/>
       }
     </>
 
