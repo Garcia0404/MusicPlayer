@@ -85,10 +85,10 @@ export const Footer = () => {
             animate="enter"
             className={`${style} w-full bg-transparent sticky right-0 bottom-20 tablet:bottom-0 tablet:m-0 z-10`}
           >
-            <div className='flex tablet:grid grid-cols-10 items-center tablet:mx-0 bg-red9 tablet:bg-black rounded-lg p-3 mx-2'>
+            <div className='flex tablet:justify-between items-center tablet:mx-0 bg-red9 tablet:bg-black rounded-lg p-3 gap-4 mx-2'>
               <CardSong />
-              <main className='flex ms-auto tablet:mx-0 flex-col gap-1 col-start-4 col-end-8'>
-                <section className='flex items-center gap-3 mobileLg:gap-4 justify-center'>
+              <main className='flex tablet:items-center flex-grow tablet:mx-0 flex-col gap-1 col-start-4 col-end-8'>
+                <section className='max-mobileLg:ms-auto flex items-center gap-3 mobileLg:gap-4 justify-center'>
                   <span className='hidden mobileLg:block'>
                     <RandomBtn />
                   </span>
@@ -101,7 +101,7 @@ export const Footer = () => {
                     <RepeatBtn />
                   </span>
                 </section>
-                <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2'>
+                <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2 max-w-3xl tablet:w-full'>
                   <span>{time}</span>
                   <SliderMusic/>
                   <span>{duration}</span>

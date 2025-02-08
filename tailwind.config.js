@@ -1,4 +1,3 @@
-import { transform } from 'framer-motion';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -19,12 +18,12 @@ export default {
       },
       keyframes:{
         marquee:{
-          '0%':{transform:'translateX(100%)'},
+          '0%':{transform:'translateX(80px)'},
           '100%':{transform:'translateX(-100%)'}
         }
       },
       animation:{
-        marquee:'marquee 5s linear infinite'
+        marquee:'marquee 8s linear infinite'
       },
       screens: {
         'mobile': '360px',

@@ -11,7 +11,7 @@ export const SliderMusic = () => {
   }
 
   return (
-    <div className='flex-1'>
+    <div className='w-full'>
       <style>
       {`
       .input-time::-webkit-slider-thumb {
