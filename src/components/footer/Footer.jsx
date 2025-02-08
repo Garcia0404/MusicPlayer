@@ -107,11 +107,11 @@ export const Footer = () => {
                   <span>{duration}</span>
                 </section>
               </main>
-              <article className='hidden tablet:flex items-center gap-3 justify-center col-start-8 col-end-11'>
+              <div className='hidden tablet:flex items-center gap-3 me-4 justify-end col-start-8 col-end-11'>
                 <MuteBtn />
                 <Slider />
                 <audio onEnded={handleSongEnded} ref={ref} autoPlay src={music.music}></audio>
-              </article>
+              </div>
             </div>
           </motion.footer>
         )

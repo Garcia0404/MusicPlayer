@@ -11,7 +11,7 @@ export const GeneralCard = ({ music }) => {
             <PlaySong song={music} listen={false} />
           </div>
         </div>
-        <h3 className='mobileLg:text-xl text-lg font-medium mt-2'>{music.name}</h3>
+        <h3 className='mobileLg:text-xl text-lg font-medium mt-2 white'>{music.name}</h3>
         <span className='text-white9 text-md mt-auto'>The Strokes</span>
       </article>
     </>
