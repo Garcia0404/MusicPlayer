@@ -66,7 +66,7 @@ export const CardSong = () => {
             initial="initial"
             animate="enter"
             className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto mobileLg:rounded-md z-40 relative'>
-            <article className='flex flex-col p-6 text-white max-w-[700px] mx-auto min-h-[400px]'>
+            <article className='flex flex-col p-4 text-white max-w-[700px] mx-auto min-h-[400px]'>
               <svg className="size-6 stroke-white absolute top-0 left-0 m-4 cursor-pointer" onClick={() => { setShowFooter(true); navigate(-1) }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
               </svg>
