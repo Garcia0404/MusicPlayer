@@ -12,7 +12,6 @@ export const Footer = () => {
   const style = showFooter ? 'block' : 'hidden'
 
   const time = formatTime(timeSong)
-  const duration = formatTime(durationSong)
 
   useEffect(() => {
     if (ref.current) {
@@ -28,15 +27,14 @@ export const Footer = () => {
   useEffect(() => {
     if (ref.current) ref.current.volume = volume / 100;
   }, [volume])
-
+  function handleTimeUpdate() {
+    if (ref.current) setTimeSong(ref.current.currentTime)
+  }
+  function handleLoadedM() {
+    if (ref.current) setDurationSong(ref.current.duration)
+  }
   useEffect(() => {
     if (ref.current && music.name) {
-      function handleTimeUpdate() {
-        if (ref.current) setTimeSong(ref.current.currentTime)
-      }
-      function handleLoadedM() {
-        if (ref.current) setDurationSong(ref.current.duration)
-      }
       ref.current.addEventListener('timeupdate', handleTimeUpdate)
       ref.current.addEventListener('loadedmetadata', handleLoadedM)
       if (durationSong !== 0) setSliderTime(parseFloat(timeSong * 100 / durationSong))
@@ -47,7 +45,7 @@ export const Footer = () => {
         }
       }
     }
-  })
+  },[ref?.current?.currentTime,music])
 
   function handleSongEnded() {
     if (!random) {
@@ -92,7 +90,7 @@ export const Footer = () => {
                   <span className='hidden mobileLg:block'>
                     <PreviousSong />
                   </span>
-                  <PlayBtn/>
+                  <PlayBtn />
                   <NextSong />
                   <span className='hidden mobileLg:block '>
                     <RepeatBtn />
@@ -101,7 +99,7 @@ export const Footer = () => {
                 <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2 max-w-3xl tablet:w-full'>
                   <span>{time}</span>
                   <SliderMusic />
-                  <span>{duration}</span>
+                  <span>{music.duration}</span>
                 </section>
               </main>
               <div className='hidden tablet:flex items-center gap-3 me-4 justify-end col-start-8 col-end-11'>

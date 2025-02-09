@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { contexto } from '../context/AppContext';
-
+import { motion } from 'framer-motion';
 export const Slider = () => {
   const { volume, setVolume } = useContext(contexto);
   const handleChange = (event) => {
@@ -35,7 +35,7 @@ export const Slider = () => {
     `}
       </style>
       <label className='text-white flex items-center'>
-        <input 
+        <motion.input 
           className='input-sound'
           type="range" 
           min={0} 

@@ -9,7 +9,6 @@ export const SliderMusic = () => {
       ref.current.currentTime = parseFloat(e.target.value * durationSong / 100)
     }
   }
-
   return (
     <div className='w-full'>
       <style>
