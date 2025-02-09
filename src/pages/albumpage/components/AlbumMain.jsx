@@ -15,9 +15,9 @@ export const AlbumMain = () => {
   return (
     <>
       {albumid ? (
-        <main className='max-w-[700px] relative lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md'>
+        <main className='max-w-[700px] relative lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto sm:rounded-md'>
           <BackButton />
-          <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 sticky top-0 right-0 pb-6 z-10'>
+          <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 tablet:pt-12 sticky top-0 right-0 pb-6 z-10'>
             <CardMain {...albumid} />
           </section>
           <section className='px-6 pb-6 overflow-auto'>

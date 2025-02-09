@@ -28,7 +28,7 @@ export const Main = () => {
         <h2 className="text-xl font-semibold col-start-1 col-end-[-1]">Heard Recently</h2>
         <ul className="grid gap-2 grid-cols-1 mobileLg:grid-cols-mainH">
           {recent.length !== 0 && recent.map((song, index) => (
-            <GeneralCard key={`song-${song.name}-${index}`} music={song} />
+            <GeneralCard key={`song-${song.name}`} music={song} />
           ))
           }
         </ul>
