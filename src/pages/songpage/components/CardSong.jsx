@@ -36,9 +36,9 @@ export const CardSong = () => {
             animate="enter"
             layout
             style={{ height: "calc(100dvh - 64px)" }}
-            className='max-w-[700px] min-h-[350px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto mobileLg:rounded-md z-40 relative'>
+            className='max-w-[700px] min-h-[350px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-hidden mobileLg:rounded-md z-40 relative'>
             <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{background:"linear-gradient(#32aac8,transparent)"}}></motion.div>
-            <article className='flex justify-center flex-col p-5 text-white max-w-[700px] mx-auto h-full'>
+            <article className='flex justify-center flex-col px-5 text-white max-w-[700px] mx-auto h-full'>
               <BackButton callback={() => {setShowFooter(true)}}/>
               <span className='flex justify-center font-extralight mt-4'>listening to the album</span>
               <h2 className='text-center font-semibold'>{music.album.albumName}</h2>
