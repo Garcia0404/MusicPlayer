@@ -1,17 +1,15 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { contexto } from '../../../context/AppContext'
-export const PlaySong = ({ song, listen }) => {
-  const { play, setPlay, music, setMusic, recent, setRecent } = useContext(contexto)
-  const [startMusic, setStartMusic] = useState(listen)
+import { useIsPlaying } from '../../../hooks/useIsPlaying'
+export const PlaySong = ({ song }) => {
+  const { setPlay, music, setMusic, recent, setRecent } = useContext(contexto)
+  const { isPlaying } = useIsPlaying(song.name)
   function handleClick() {
-    setStartMusic(!startMusic)
     setMusic(song)
-    if (startMusic) {
-      setPlay(false)
-    }
+    if(!isPlaying) setPlay(true)
+    else setPlay(false)
   }
   useEffect(() => {
-    if (play && song.name == music.name) setStartMusic(true)
     if (music.name) {
       if (recent.length > 0) {
         const index = recent.findIndex((song) => song.name == music.name);
@@ -24,25 +22,9 @@ export const PlaySong = ({ song, listen }) => {
       }
     }
   }, [])
-  useEffect(() => {
-    if (play && song.name == music.name) setStartMusic(true)
-  }, [recent])
 
-  useEffect(() => {
-    if (song.name == music.name) {
-      if (startMusic) setPlay(true)
-    } else setStartMusic(false)
-  }, [music, startMusic])
-
-
-  useEffect(() => {
-    if (play && song.name == music.name) {
-      setStartMusic(true)
-    }
-    if (!play && song.name == music.name) setStartMusic(false)
-  }, [play, music])
-  const changeStyle1 = startMusic ? 'hidden' : 'block'
-  const changeStyle2 = startMusic ? 'block' : 'hidden'
+  const changeStyle1 = isPlaying ? 'hidden' : 'block'
+  const changeStyle2 = isPlaying ? 'block' : 'hidden'
   return (
     <div>
       <svg onClick={handleClick} className={`${changeStyle1} w-8 h-8 bg-greenMain border-none stroke-black fill-black hover:scale-[1.2] active:scale-95 border p-1 rounded-full cursor-pointer transition-all`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">

@@ -19,16 +19,16 @@ export const Main = () => {
         <main className="grid grid-cols-2 mobileLg:grid-cols-mainH gap-3">
           {
             songs.map((song, index) => (
-              <Card song={data[song[0]].canciones[song[1]]} key={index} listen={false} />
+              <Card song={data[song[0]].canciones[song[1]]} key={index} />
             ))
           }
         </main>
       </section>
       <section className='p-4 text-white grid gap-2'>
         <h2 className="text-xl font-semibold col-start-1 col-end-[-1]">Heard Recently</h2>
-        <ul className="grid gap-2 mobileLg:grid-cols-mainH">
+        <ul className="grid gap-2 grid-cols-1 mobileLg:grid-cols-mainH">
           {recent.length !== 0 && recent.map((song, index) => (
-            <GeneralCard key={`song-${song.name}`} music={song} />
+            <GeneralCard key={`song-${song.name}-${index}`} music={song} />
           ))
           }
         </ul>
