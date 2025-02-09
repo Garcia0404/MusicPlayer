@@ -11,16 +11,17 @@ export const SearchPage = () => {
     setSearchsong(song)
   }
   return (
-    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md p-3'>
+    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md pt-6 px-3'>
       <header className='sticky top-0 right-0 text-sm font-medium'>
-        <form onSubmit={handleSubmit} className='flex relative m-3'>
-          <div className='absolute top-0 left-0 my-4 mx-3'>
-            <svg className="w-5 h-5 stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <form onSubmit={handleSubmit} className='flex gap-4 items-center relative rounded-3xl bg-grayMain text-white px-6 py-4'>
+          <div>
+            <svg className="size-5 stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
             </svg>
           </div>
-          <label htmlFor="searchSong" className='hidden'></label>
-          <input value={song} onChange={handleChange} className='w-full h-full ps-10 py-5 pe-5 rounded-3xl bg-grayMain text-white' id='searchSong' placeholder='What do you want to listen to?' type="text" />
+          <label className='w-full'>
+            <input value={song} onChange={handleChange} className='w-full h-full bg-transparent outline-none' id='searchSong' placeholder='What do you want to listen to?' type="text" />
+          </label>
         </form>
       </header>
       <SearchSong nameSong={song} submit={searchSong} />

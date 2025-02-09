@@ -17,7 +17,7 @@ export const AlbumsPage = () => {
           </div>
           <h1 className='absolute bottom-10 left-0 text-white text-5xl mobileLg:text-7xl tablet:text-8xl font-bold p-5'>The Strokes</h1>
         </header>
-        <main className='relative flex flex-col gap-3 pt-8 px-4 pb-4 text-white overflow-auto'>
+        <main className='relative flex flex-col gap-3 pt-8 px-3 sm:px-4 pb-4 text-white overflow-auto'>
           <div className='absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#562D03]'></div>
           <h2 className='text-white text-3xl z-[2] font-medium'>Albums</h2>
           <div className='z-[2]'>
