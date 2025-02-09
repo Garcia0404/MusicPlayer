@@ -94,7 +94,7 @@ export const CardSong = () => {
                   <div className='flex items-center justify-around w-40 mx-auto mt-2'>
                     <RandomBtn />
                     <PreviousSong />
-                    <PlayBtn width="11"/>
+                    <PlayBtn/>
                     <NextSong />
                     <RepeatBtn />
                   </div>
