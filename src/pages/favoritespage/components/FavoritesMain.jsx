@@ -8,7 +8,7 @@ export const FavoritesMain = () => {
   return (
     <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md'>
       <section className='bg-gradient-to-b from-[#4E3899] to-secondary text-white'>
-        <div className='w-full flex flex-col mobileLg:flex-row gap-6 mobileLg:items-center px-3 sm:px-6 pt-10'>
+        <div className='w-full flex flex-col mobileLg:flex-row gap-6 mobileLg:items-center px-4 sm:px-6 pt-10'>
           <picture className='mx-auto mobileLg:m-0'>
             <div className='rounded-md bg-gradient-to-br p-14 from-[#4D17F2] to-[#B5D7DA]'>
               <svg className='h-14 w-14 fill-white' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
