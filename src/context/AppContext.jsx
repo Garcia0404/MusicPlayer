@@ -75,7 +75,6 @@ export const AppContext = ({ children }) => {
     }
 
   }, [music]);
-
   return (
     <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data, error, allLoaded, setAllLoaded }}>
       {children}

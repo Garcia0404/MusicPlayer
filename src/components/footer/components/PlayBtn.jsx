@@ -1,10 +1,15 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { contexto } from '../../../context/AppContext'
 export const PlayBtn = () => {
-  const { play, setPlay, music } = useContext(contexto)
+  const { play, setPlay, ref,music } = useContext(contexto)
   function change() {
     setPlay(!play)
   }
+  useEffect(() => {
+    if (ref.current) {
+      play ? ref.current.play() : ref.current.pause();
+    }
+  }, [play, music])
   const changeStyle1 = play ? 'hidden' : 'block'
   const changeStyle2 = play ? 'block' : 'hidden'
 

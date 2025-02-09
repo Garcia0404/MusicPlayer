@@ -1,69 +1,17 @@
 import { contexto } from '../../context/AppContext'
 import { PlayBtn, RandomBtn, RepeatBtn, CardSong, Slider, SliderMusic, MuteBtn, NextSong, PreviousSong } from './components'
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 import { motion } from 'framer-motion'
 import { variants } from '../../variants/variants'
-import { randomNumber } from "../../utils/randomNumber"
 import { formatTime } from "../../utils/formatTime"
+import { useAudioProgress } from '../../hooks/useAudioProgress'
+import { useSongEnded } from '../../hooks/useSongEnded'
 export const Footer = () => {
-  const { music, setMusic, play, volume, setSliderTime, repeat, random, showFooter, ref, data } = useContext(contexto)
-  const [timeSong, setTimeSong] = useState(0)
+  const { music, showFooter, ref } = useContext(contexto)
   const style = showFooter ? 'block' : 'hidden'
   const duration = formatTime(music.duration)
-  const time = formatTime(timeSong)
-
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.loop = repeat
-    }
-  }, [repeat])
-
-  useEffect(() => {
-    if (ref.current) {
-      play ? ref.current.play() : ref.current.pause();
-    }
-  }, [play, music])
-  useEffect(() => {
-    if (ref.current) ref.current.volume = volume / 100;
-  }, [volume])
-  function handleTimeUpdate() {
-    if (ref.current) setTimeSong(ref.current.currentTime)
-  }
-  useEffect(() => {
-    if (ref.current && music.name) {
-      ref.current.addEventListener('timeupdate', handleTimeUpdate)
-      if (duration !== 0) setSliderTime(parseFloat(timeSong * 100 / music.duration))
-      return () => {
-        if (ref.current) {
-          ref.current.removeEventListener('timeupdate', handleTimeUpdate)
-        }
-      }
-    }
-  },[ref?.current?.currentTime,music])
-
-  function handleSongEnded() {
-    if (!random) {
-      const album = localStorage.getItem('album')
-      const song = localStorage.getItem('song')
-      if (album && song) {
-        const al = data.find(a => a.nombre == album)
-        const indexAl = data.findIndex(a => a.nombre == album)
-        const index = al.canciones.findIndex((m) => m.name == song)
-        if (index < al.canciones.length - 1) {
-          setMusic(al.canciones[index + 1])
-        } else {
-          if (indexAl + 1 < data.length) {
-            setMusic(data[indexAl + 1].canciones[0])
-          } else setMusic(data[0].canciones[0])
-        }
-      }
-    } else {
-      let n = data[randomNumber(6)]
-      const length = n.canciones.length
-      n = n.canciones[randomNumber(length)]
-      setMusic(n)
-    }
-  }
+  const { time } = useAudioProgress()
+  const { handleSongEnded } = useSongEnded()
   return (
     <>
       {
@@ -99,7 +47,7 @@ export const Footer = () => {
               <div className='hidden tablet:flex items-center gap-3 me-4 justify-end col-start-8 col-end-11'>
                 <MuteBtn />
                 <Slider />
-                <audio onEnded={handleSongEnded} ref={ref} autoPlay src={music.music}></audio>
+                <audio onEnded={handleSongEnded} ref={ref} src={music.music}></audio>
               </div>
             </div>
           </motion.footer>

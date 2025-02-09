@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
-import { useContext, useState } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useContext } from 'react'
+import { Navigate, useParams } from 'react-router-dom'
 import { contexto } from '../../../context/AppContext'
 import { motion } from 'framer-motion'
 import { SliderMusic, PlayBtn, RandomBtn, PreviousSong, NextSong, RepeatBtn, LikeBtn } from '/src/components'
 import { formatTime } from '../../../utils/formatTime'
 import {BackButton} from '../../../components/ui/BackButton'
+import { useAudioProgress } from '../../../hooks/useAudioProgress'
 const variants = {
   initial: {
     opacity: 0
@@ -19,28 +20,9 @@ const variants = {
 }
 export const CardSong = () => {
   const songname = useParams().nameSong
-  const { music, play, setSliderTime, setShowFooter, ref } = useContext(contexto)
-  const [timeSong, setTimeSong] = useState(0)
-  const time = formatTime(timeSong)
+  const { music, setShowFooter } = useContext(contexto)
   const duration = formatTime(music.duration)
-
-  useEffect(() => {
-    if (ref.current) {
-      play ? ref.current.play() : ref.current.pause();
-    }
-  }, [play, music])
-  function handleTimeUpdate() {
-    setTimeSong(ref.current.currentTime)
-  }
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.addEventListener('timeupdate', handleTimeUpdate)
-      if (duration !== 0) setSliderTime(parseFloat(timeSong * 100 / music.duration))
-      return () => {
-        ref.current.removeEventListener('timeupdate', handleTimeUpdate)
-      }
-    }
-  })
+  const {time} = useAudioProgress()
   useEffect(() => {
     setShowFooter(false)
   }, [])
@@ -64,7 +46,7 @@ export const CardSong = () => {
                 <img className='mx-auto rounded-md' width='450' height='450' src={music.album.albumImg} alt={music.name} />
               </div>
               <div>
-                <div className='flex justify-between items-center'>
+                <div className='flex justify-between items-center gap-1'>
                   <div className='flex flex-col'>
                     <span className='text-lg font-semibold'>{music.name}</span>
                     <span className='font-light text-gray-300'>The Strokes</span>

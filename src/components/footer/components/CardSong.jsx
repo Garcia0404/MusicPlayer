@@ -4,6 +4,7 @@ import { LikeBtn } from '.'
 import { useNavigate } from 'react-router-dom'
 import { useResponsiveAction } from '../../../hooks/useResponsiveAction'
 
+
 export const CardSong = () => {
   const { music, setShowFooter } = useContext(contexto)
   const navigate = useNavigate()

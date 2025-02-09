@@ -1,12 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { contexto } from '../context/AppContext';
 import { motion } from 'framer-motion';
 export const Slider = () => {
-  const { volume, setVolume } = useContext(contexto);
+  const { volume, setVolume,ref } = useContext(contexto);
   const handleChange = (event) => {
     setVolume(parseInt(event.target.value));
   };
-
+  useEffect(() => {
+    if (ref.current) ref.current.volume = volume / 100;
+  }, [volume])
   return (
     <div>
       <style>
