@@ -6,7 +6,7 @@ import { AppRouter } from './pages/router/AppRouter'
 import { AppContext } from './context/AppContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
     <AppContext>
       <AppRouter />
     </AppContext>
