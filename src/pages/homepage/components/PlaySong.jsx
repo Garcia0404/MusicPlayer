@@ -20,8 +20,8 @@ export const PlaySong = ({ song }) => {
           setRecent(updatedRecent)
         }
       }
-    }
-  }, [])
+    }  
+  }, [music])
 
   const changeStyle1 = isPlaying ? 'hidden' : 'block'
   const changeStyle2 = isPlaying ? 'block' : 'hidden'
