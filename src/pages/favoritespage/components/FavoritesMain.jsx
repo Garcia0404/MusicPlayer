@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { contexto } from '../../../context/AppContext'
 import { GeneralCard } from '../../homepage/components'
 import { Circle } from '../../../components'
+import { AnimatePresence, motion } from 'framer-motion'
 export const FavoritesMain = () => {
   const { likeSong } = useContext(contexto)
   return (
@@ -26,15 +27,15 @@ export const FavoritesMain = () => {
           </div>
         </div>
       </section>
-      <ul className='grid mobile:grid-cols-2 mobileLg:grid-cols-mainH gap-3 text-white p-3 sm:p-6 list-none'>
-        {
-          likeSong.map((song, index) => (
-            <li key={index}>
-              <GeneralCard music={song} />
-            </li>
-          ))
-        }
-      </ul>
+      <motion.ul className='grid mobile:grid-cols-2 mobileLg:grid-cols-mainH gap-3 text-white p-3 sm:p-6 list-none'>
+        <AnimatePresence>
+          {
+            likeSong.map((song, index) => (
+              <GeneralCard key={`${song.name}-${index}-fav`} music={song} />
+            ))
+          }
+        </AnimatePresence>
+      </motion.ul>
     </main>
   )
 }

@@ -7,7 +7,7 @@ export const AppContext = ({ children }) => {
   const location = useLocation()
   const ref = useRef(null)
   const [play, setPlay] = useState(false)
-  const [ allLoaded,setAllLoaded ] = useState(false)
+  const [allLoaded, setAllLoaded] = useState(false)
   const [random, setRandom] = useState(false)
   const [repeat, setRepeat] = useState(false)
   const [volume, setVolume] = useState(100)
@@ -29,14 +29,15 @@ export const AppContext = ({ children }) => {
       localStorage.setItem('album', music.album.albumName)
       localStorage.setItem('song', music.name)
     }
+    console.log(music)
   }, [music])
   useEffect(() => {
     const album = localStorage.getItem('album')
     const song = localStorage.getItem('song')
     if (album && song && data) {
-      const al = data.find(a => a.nombre === album)
-      const s = al.canciones.find((m) => m.name === song)
-      setMusic(s)
+      const alb = data.find(albm => albm.nombre === album)
+      const sng = alb.canciones.find((msc) => msc.name === song)
+      setMusic(sng)
     }
     if (localStorage.getItem('favorites')) {
       const favorites = JSON.parse(localStorage.getItem('favorites'))
@@ -76,7 +77,7 @@ export const AppContext = ({ children }) => {
   }, [music]);
 
   return (
-    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data,error,allLoaded,setAllLoaded }}>
+    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data, error, allLoaded, setAllLoaded }}>
       {children}
     </contexto.Provider>
   )
