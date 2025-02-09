@@ -5,7 +5,7 @@ import { contexto } from '../../../context/AppContext'
 import { motion } from 'framer-motion'
 import { SliderMusic, PlayBtn, RandomBtn, PreviousSong, NextSong, RepeatBtn, LikeBtn } from '/src/components'
 import { formatTime } from '../../../utils/formatTime'
-
+import {BackButton} from '../../../components/ui/BackButton'
 const variants = {
   initial: {
     opacity: 0
@@ -69,9 +69,7 @@ export const CardSong = () => {
             className='max-w-[700px] min-h-[350px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto mobileLg:rounded-md z-40 relative'>
             <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{background:"linear-gradient(#32aac8,transparent)"}}></motion.div>
             <article className='flex justify-center flex-col p-5 text-white max-w-[700px] mx-auto h-full'>
-              <svg className="size-6 stroke-white absolute top-0 left-0 m-4 cursor-pointer" onClick={() => { setShowFooter(true); navigate(-1) }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
+              <BackButton callback={() => {setShowFooter(true)}}/>
               <span className='flex justify-center font-extralight mt-4'>listening to the album</span>
               <h2 className='text-center font-semibold'>{music.album.albumName}</h2>
               <div className='rounded-md overflow-hidden my-8 min-h-[280px] max-w-[450px] max-h-[450px] mx-auto'>
