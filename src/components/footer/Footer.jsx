@@ -8,9 +8,8 @@ import { formatTime } from "../../utils/formatTime"
 export const Footer = () => {
   const { music, setMusic, play, volume, setSliderTime, repeat, random, showFooter, ref, data } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
-  const [durationSong, setDurationSong] = useState(0)
   const style = showFooter ? 'block' : 'hidden'
-
+  const duration = formatTime(music.duration)
   const time = formatTime(timeSong)
 
   useEffect(() => {
@@ -30,18 +29,13 @@ export const Footer = () => {
   function handleTimeUpdate() {
     if (ref.current) setTimeSong(ref.current.currentTime)
   }
-  function handleLoadedM() {
-    if (ref.current) setDurationSong(ref.current.duration)
-  }
   useEffect(() => {
     if (ref.current && music.name) {
       ref.current.addEventListener('timeupdate', handleTimeUpdate)
-      ref.current.addEventListener('loadedmetadata', handleLoadedM)
-      if (durationSong !== 0) setSliderTime(parseFloat(timeSong * 100 / durationSong))
+      if (duration !== 0) setSliderTime(parseFloat(timeSong * 100 / music.duration))
       return () => {
         if (ref.current) {
           ref.current.removeEventListener('timeupdate', handleTimeUpdate)
-          ref.current.removeEventListener('loadedmetadata', handleLoadedM)
         }
       }
     }
@@ -99,7 +93,7 @@ export const Footer = () => {
                 <section className='hidden text-white font-extralight text-sm tablet:flex items-center gap-2 max-w-3xl tablet:w-full'>
                   <span>{time}</span>
                   <SliderMusic />
-                  <span>{music.duration}</span>
+                  <span>{duration}</span>
                 </section>
               </main>
               <div className='hidden tablet:flex items-center gap-3 me-4 justify-end col-start-8 col-end-11'>
