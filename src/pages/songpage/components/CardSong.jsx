@@ -91,7 +91,7 @@ export const CardSong = () => {
                     <SliderMusic handle={handleTime} />
                     <span>{music.duration}</span>
                   </section>
-                  <div className='flex items-center justify-around w-40 scale-125 mx-auto mt-2'>
+                  <div className='flex items-center justify-center w-40 scale-125 mx-auto mt-2 gap-4'>
                     <RandomBtn />
                     <PreviousSong />
                     <PlayBtn/>
