@@ -20,7 +20,7 @@ export const LikeBtn = () => {
       setLikeSong(likeSong.filter((song) => song.name != music.name))
       setLikeMusic(false)
     } else {
-      setLikeSong([...likeSong, music])
+      setLikeSong([music,...likeSong])
       setLikeMusic(true)
     }
   }

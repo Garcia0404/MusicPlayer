@@ -31,7 +31,7 @@ export const FavoritesMain = () => {
         <AnimatePresence>
           {
             likeSong.map((song, index) => (
-              <GeneralCard key={`${song.name}-${index}-fav`} music={song} />
+              <GeneralCard key={`${song.name}-fav`} music={song} id="favorites"/>
             ))
           }
         </AnimatePresence>

@@ -5,12 +5,12 @@ const variants = {
   hide: { opacity: 0 },
   show: { opacity: 1 }
 }
-export const GeneralCard = ({ music }) => {
+export const GeneralCard = ({ music,id }) => {
   return (
-    <motion.li layoutId={`song-${music.name}`} 
+    <motion.li layoutId={`song-${music.name}-${id}`} 
       variants={variants} 
       transition={{ duration: 0.3, ease: "easeInOut" }} 
-      initial="hide" animate="show"
+      initial="hide" animate="show" exit="hide"
       className='flex-col gap-2 p-3 bg-[#181818] transition-colors hover:bg-[#262626] rounded-lg inline-flex group/item sm:min-h-[280px] h-full text-white'>
       <div className='relative'>
         <img className='h-auto w-full rounded-lg' src={music.album.albumImg} alt={music.name} width='300px' height='300px' />

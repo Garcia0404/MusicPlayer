@@ -14,7 +14,7 @@ export const SearchSong = ({ nameSong,submit }) => {
   if (music.length > 0) {
     return (
       <main className='grid grid-cols-mainH p-3'>
-        <GeneralCard music={music[0]} />
+        <GeneralCard music={music[0]} id="found"/>
       </main>
     )
   } else {
