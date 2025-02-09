@@ -92,7 +92,7 @@ export const Footer = () => {
                   <span className='hidden mobileLg:block'>
                     <PreviousSong />
                   </span>
-                  <PlayBtn/>
+                  <PlayBtn width="10"/>
                   <NextSong />
                   <span className='hidden mobileLg:block '>
                     <RepeatBtn />
