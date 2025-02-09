@@ -29,7 +29,6 @@ export const AppContext = ({ children }) => {
       localStorage.setItem('album', music.album.albumName)
       localStorage.setItem('song', music.name)
     }
-    console.log(music)
   }, [music])
   useEffect(() => {
     const album = localStorage.getItem('album')
