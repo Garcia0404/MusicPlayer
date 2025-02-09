@@ -19,41 +19,28 @@ const variants = {
 }
 export const CardSong = () => {
   const songname = useParams().nameSong
-  const navigate = useNavigate()
   const { music, play, setSliderTime, setShowFooter, ref } = useContext(contexto)
   const [timeSong, setTimeSong] = useState(0)
-  const [durationSong, setDurationSong] = useState(0)
   const time = formatTime(timeSong)
-  const duration = formatTime(durationSong)
+  const duration = formatTime(music.duration)
 
   useEffect(() => {
     if (ref.current) {
       play ? ref.current.play() : ref.current.pause();
     }
   }, [play, music])
-
+  function handleTimeUpdate() {
+    setTimeSong(ref.current.currentTime)
+  }
   useEffect(() => {
     if (ref.current) {
-      function handleTimeUpdate() {
-        setTimeSong(ref.current.currentTime)
-      }
-      function handleLoadedM() {
-        setDurationSong(ref.current.duration)
-      }
       ref.current.addEventListener('timeupdate', handleTimeUpdate)
-      ref.current.addEventListener('loadedmetadata', handleLoadedM)
-      if (durationSong !== 0) setSliderTime(parseFloat(timeSong * 100 / durationSong))
+      if (duration !== 0) setSliderTime(parseFloat(timeSong * 100 / music.duration))
       return () => {
         ref.current.removeEventListener('timeupdate', handleTimeUpdate)
-        ref.current.removeEventListener('loadedmetadata', handleLoadedM)
       }
     }
   })
-
-
-  function handleTime(e) {
-    if (ref.current) ref.current.currentTime = parseFloat(e.target.value * durationSong / 100)
-  }
   useEffect(() => {
     setShowFooter(false)
   }, [])
@@ -65,6 +52,7 @@ export const CardSong = () => {
             variants={variants}
             initial="initial"
             animate="enter"
+            layout
             style={{ height: "calc(100dvh - 64px)" }}
             className='max-w-[700px] min-h-[350px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto mobileLg:rounded-md z-40 relative'>
             <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{background:"linear-gradient(#32aac8,transparent)"}}></motion.div>
@@ -86,8 +74,8 @@ export const CardSong = () => {
                 <div className='flex flex-col gap-2 mt-4'>
                   <section className='text-white font-extralight text-sm flex items-center gap-2'>
                     <span>{time}</span>
-                    <SliderMusic handle={handleTime} />
-                    <span>{music.duration}</span>
+                    <SliderMusic />
+                    <span>{duration}</span>
                   </section>
                   <div className='flex items-center justify-center w-40 scale-125 mx-auto mt-2 gap-4'>
                     <RandomBtn />
