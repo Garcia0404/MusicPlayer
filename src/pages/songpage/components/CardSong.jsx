@@ -5,8 +5,9 @@ import { contexto } from '../../../context/AppContext'
 import { motion } from 'framer-motion'
 import { SliderMusic, PlayBtn, RandomBtn, PreviousSong, NextSong, RepeatBtn, LikeBtn } from '/src/components'
 import { formatTime } from '../../../utils/formatTime'
-import {BackButton} from '../../../components/ui/BackButton'
+import { BackButton } from '../../../components/ui/BackButton'
 import { useAudioProgress } from '../../../hooks/useAudioProgress'
+import { useScrollToTop } from "../../../hooks/useScrollToTop"
 const variants = {
   initial: {
     opacity: 0
@@ -22,10 +23,11 @@ export const CardSong = () => {
   const songname = useParams().nameSong
   const { music, setShowFooter } = useContext(contexto)
   const duration = formatTime(music.duration)
-  const {time} = useAudioProgress()
+  const { time } = useAudioProgress()
   useEffect(() => {
     setShowFooter(false)
   }, [])
+  useScrollToTop()
   return (
     <>
       {
@@ -37,9 +39,9 @@ export const CardSong = () => {
             layout
             style={{ height: "calc(100dvh - 64px)" }}
             className='max-w-[700px] min-h-[350px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-hidden mobileLg:rounded-md z-40 relative'>
-            <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{background:"linear-gradient(#32aac8,transparent)"}}></motion.div>
+            <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{ background: "linear-gradient(#32aac8,transparent)" }}></motion.div>
             <article className='flex justify-center flex-col px-5 text-white max-w-[700px] mx-auto h-full'>
-              <BackButton callback={() => {setShowFooter(true)}}/>
+              <BackButton callback={() => { setShowFooter(true) }} />
               <span className='flex justify-center font-extralight mt-4'>listening to the album</span>
               <h2 className='text-center font-semibold'>{music.album.albumName}</h2>
               <div className='rounded-md overflow-hidden my-8 min-h-[280px] max-w-[450px] max-h-[450px] mx-auto'>
@@ -62,7 +64,7 @@ export const CardSong = () => {
                   <div className='flex items-center justify-center w-40 scale-125 mx-auto mt-2 gap-4'>
                     <RandomBtn />
                     <PreviousSong />
-                    <PlayBtn/>
+                    <PlayBtn />
                     <NextSong />
                     <RepeatBtn />
                   </div>
