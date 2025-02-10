@@ -4,6 +4,7 @@ import { contexto } from '../../../context/AppContext'
 import { Navigate, useParams } from 'react-router-dom'
 import { BackButton } from '../../../components/ui/BackButton'
 import { formatTime } from '../../../utils/formatTime'
+import { useScrollToTop } from '../../../hooks/useScrollToTop'
 export const AlbumMain = () => {
   const { data } = useContext(contexto)
   const nameAlbum = useParams().name
@@ -12,13 +13,14 @@ export const AlbumMain = () => {
   ))
   const a = albumid ? albumid.canciones : null
   const { setMusic, setPlay } = useContext(contexto)
+  useScrollToTop()
   return (
     <>
       {albumid ? (
         <main className='max-w-[700px] relative lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto sm:rounded-md'>
           <BackButton />
           <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 tablet:pt-12 sticky top-0 right-0 pb-6 z-10'>
-            <CardMain {...albumid} />
+            <CardMain {...albumid} layout={true} />
           </section>
           <section className='px-6 pb-6 overflow-auto'>
             <table className='w-full'>
