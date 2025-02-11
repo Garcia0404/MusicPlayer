@@ -3,8 +3,11 @@ import { HomePage, SearchPage, AppRouterD, FavoritesPage, LoadingHomepage } from
 import { Footer, NavbarMobile, Navbar, Loading } from '../../components'
 import { useContext } from 'react'
 import { contexto } from '../../context/AppContext'
+import { useAddToRecents } from '../../hooks/useAddToRecents'
 export const AppRouter = () => {
   const { allLoaded } = useContext(contexto)
+  // Add to recents
+  useAddToRecents()
   return (
     <>
       {allLoaded ?

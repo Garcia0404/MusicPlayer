@@ -42,10 +42,6 @@ export const AppContext = ({ children }) => {
       const favorites = JSON.parse(localStorage.getItem('favorites'))
       setLikeSong(favorites)
     }
-    if (localStorage.getItem('recents')) {
-      const updateRecent = JSON.parse(localStorage.getItem('recents'))
-      setRecent(updateRecent)
-    }
   }, [])
 
   useEffect(() => {
@@ -53,26 +49,6 @@ export const AppContext = ({ children }) => {
       localStorage.setItem('favorites', JSON.stringify(likeSong))
     }
   }, [likeSong])
-
-  useEffect(() => {
-    if (music.name) {
-      if (recent.length > 0) {
-        const index = recent.findIndex((song) => song.name === music.name);
-        if (index !== -1) {
-          return
-        }
-      }
-      const updatedRecent = [music, ...recent]
-      if (recent.length < 20) {
-        setRecent(updatedRecent)
-        localStorage.setItem('recents', JSON.stringify(updatedRecent))
-      } else if (recent.length === 20) {
-        updatedRecent.pop()
-        setRecent(updatedRecent)
-        localStorage.setItem('recents', JSON.stringify(updatedRecent))
-      }
-    }
-  }, [music]);
   return (
     <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data, error, allLoaded, setAllLoaded }}>
       {children}

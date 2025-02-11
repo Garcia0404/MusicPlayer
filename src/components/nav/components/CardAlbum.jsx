@@ -7,7 +7,7 @@ export const CardAlbum = ({ layout = false,...album }) => {
     <li onClick={() => navigate(`/albums/${album.nombreRoute}`)} className='hover:bg-grayMain transition-colors flex rounded-md p-2 gap-3 cursor-pointer'>
       {
         layout ? (
-          <motion.div layoutId={`album-${album.nombre}`} className='z-20'>
+          <motion.div layoutId={`album-${album.nombre}`} transition={{duration:0.3}} className='z-20'>
             <motion.img className='h-12 w-12 rounded-md' src={album.image} alt={album.nombre} />
           </motion.div>
         ) : (

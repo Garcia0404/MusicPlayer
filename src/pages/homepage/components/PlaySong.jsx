@@ -1,28 +1,15 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { contexto } from '../../../context/AppContext'
 import { useIsPlaying } from '../../../hooks/useIsPlaying'
 export const PlaySong = ({ song }) => {
-  const { setPlay, music, setMusic, recent, setRecent } = useContext(contexto)
+  const { setPlay, setMusic } = useContext(contexto)
+  // check if the song is playing
   const { isPlaying } = useIsPlaying(song.name)
   function handleClick() {
     setMusic(song)
     if(!isPlaying) setPlay(true)
     else setPlay(false)
   }
-  useEffect(() => {
-    if (music.name) {
-      if (recent.length > 0) {
-        const index = recent.findIndex((song) => song.name == music.name);
-        if (index !== -1) {
-          const song = recent[index]
-          recent.splice(index, 1)
-          const updatedRecent = [song, ...recent]
-          setRecent(updatedRecent)
-        }
-      }
-    }  
-  }, [music])
-
   const changeStyle1 = isPlaying ? 'hidden' : 'block'
   const changeStyle2 = isPlaying ? 'block' : 'hidden'
   return (
