@@ -40,11 +40,11 @@ export const CardSong = () => {
             style={{ height: "calc(100dvh - 64px)" }}
             className='max-w-[700px] min-h-[600px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary z-40 relative'>
             <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{ background: "linear-gradient(#32aac8,transparent)" }}></motion.div>
-            <article className='flex justify-center flex-col px-5 text-white max-w-[700px] mx-auto h-full'>
+            <article className='flex justify-center flex-col px-5 py-5 text-white max-w-[700px] mx-auto h-full'>
               <BackButton callback={() => { setShowFooter(true) }} />
               <span className='flex justify-center font-extralight mt-4'>listening to the album</span>
               <h2 className='text-center font-semibold'>{music.album.albumName}</h2>
-              <div className='rounded-md overflow-hidden my-8 min-h-[280px] max-w-[450px] max-h-[450px] mx-auto'>
+              <div className='rounded-md overflow-hidden my-8 min-h-[280px] max-w-[350px] max-h-[450px] mx-auto'>
                 <img className='mx-auto rounded-md' width='450' height='450' src={music.album.albumImg} alt={music.name} />
               </div>
               <div>

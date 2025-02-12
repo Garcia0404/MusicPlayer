@@ -7,7 +7,8 @@ import { formatTime } from "../../utils/formatTime"
 import { useAudioProgress } from '../../hooks/useAudioProgress'
 import { useSongEnded } from '../../hooks/useSongEnded'
 export const Footer = () => {
-  const { music, ref } = useContext(contexto)
+  const { music, showFooter, ref } = useContext(contexto)
+  const style = showFooter ? 'block' : 'hidden'
   const duration = formatTime(music.duration)
   const { time } = useAudioProgress()
   const { handleSongEnded } = useSongEnded()
@@ -19,7 +20,7 @@ export const Footer = () => {
             variants={variants}
             initial="initial"
             animate="enter"
-            className={`w-full bg-transparent sticky right-0 bottom-20 lg:bottom-0 lg:m-0 z-10 max-lg:max-w-xl mx-auto`}
+            className={`${style} w-full bg-transparent sticky right-0 bottom-20 lg:bottom-0 lg:m-0 z-10 max-lg:max-w-xl mx-auto`}
           >
             <div className='flex justify-between items-center lg:mx-0 bg-red9 lg:bg-black rounded-lg p-3 gap-4 mx-2'>
               <CardSong />

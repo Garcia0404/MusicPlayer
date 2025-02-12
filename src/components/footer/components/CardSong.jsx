@@ -3,15 +3,12 @@ import { contexto } from '/src/context/AppContext'
 import { LikeBtn } from '.'
 import { useNavigate } from 'react-router-dom'
 import { useResponsiveAction } from '../../../hooks/useResponsiveAction'
-
-
 export const CardSong = () => {
-  const { music, setShowFooter } = useContext(contexto)
+  const { music } = useContext(contexto)
   const navigate = useNavigate()
   const handleNavigate = (width) => {
-    if (width <= 609) {
+    if (width <= 1023) {
       navigate(`/albums/${music.album.albumName.replace(/\s+/g, '')}/${music.name.replace(/\s+/g, '')}`);
-      setShowFooter(false)
     }
   }
   const { width } = useResponsiveAction()
