@@ -11,7 +11,7 @@ export const AppContext = ({ children }) => {
   const [random, setRandom] = useState(false)
   const [repeat, setRepeat] = useState(false)
   const [volume, setVolume] = useState(100)
-  const [likeSong, setLikeSong] = useState([])
+  const [likeSong, setLikeSong] = useState(JSON.parse(localStorage.getItem('favorites'))?JSON.parse(localStorage.getItem('favorites')):[])
   const [musicTime, setMusicTime] = useState(0)
   const [sliderTime, setSliderTime] = useState(0)
   const [music, setMusic] = useState({})
@@ -44,11 +44,6 @@ export const AppContext = ({ children }) => {
     }
   }, [])
 
-  useEffect(() => {
-    if (likeSong.length !== 0) {
-      localStorage.setItem('favorites', JSON.stringify(likeSong))
-    }
-  }, [likeSong])
   return (
     <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data, error, allLoaded, setAllLoaded }}>
       {children}
