@@ -18,7 +18,7 @@ export const AlbumMain = () => {
     <>
       {albumid ? (
         <main className='max-w-[700px] relative lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto sm:rounded-md'>
-          <BackButton />
+          <BackButton to="/albums" />
           <section className='bg-gradient-to-b from-teal-800 to-secondary text-white text-3xl px-6 pt-10 tablet:pt-12 sticky top-0 right-0 pb-6 z-10'>
             <CardMain {...albumid} layout={true} />
           </section>
@@ -26,7 +26,7 @@ export const AlbumMain = () => {
             <table className='w-full'>
               <thead className='border-b border-white9 text-white9'>
                 <tr>
-                  <th className='p-2'>#</th>
+                  <th className='p-2 relative'>#</th>
                   <th className='text-start'>Title</th>
                   <th className='hidden mobileLg:table-cell text-start' >Artist</th>
                   <th>
@@ -40,8 +40,8 @@ export const AlbumMain = () => {
                 {a &&
                   a.map((music, index) => {
                     return (
-                      <tr key={index} onClick={() => { setMusic(music), setPlay(true) }} className='hover:bg-grayMain cursor-pointer active:scale-[0.98] hover:scale-[1.02] transition-all'>
-                        <td className='text-center text-white9 p-2 '>{index + 1}</td>
+                      <tr key={index} onClick={() => { setMusic(music), setPlay(true) }} className='h-10 hover:bg-grayMain cursor-pointer active:scale-[0.98] hover:scale-[1.015] transition-all'>
+                        <td className='text-center text-white9 p-2 relative'>{index + 1}</td>
                         <td>{music.name}</td>
                         <td className='text-white9 hidden mobileLg:table-cell'>The Strokes</td>
                         <td className='text-white9'>{formatTime(music.duration)}</td>
