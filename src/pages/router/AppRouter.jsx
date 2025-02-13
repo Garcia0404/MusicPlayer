@@ -4,15 +4,18 @@ import { Footer, NavbarMobile, Navbar, Loading } from '../../components'
 import { useContext } from 'react'
 import { contexto } from '../../context/AppContext'
 import { useAddToRecents } from '../../hooks/useAddToRecents'
+import { useSongEnded } from "../../hooks/useSongEnded"
 export const AppRouter = () => {
-  const { allLoaded } = useContext(contexto)
+  const { allLoaded, music,ref,songs } = useContext(contexto)
+  const { handleSongEnded } = useSongEnded(songs)
   // Add to recents
   useAddToRecents()
   return (
     <>
       {allLoaded ?
         <div className='flex flex-col h-screen w-full'>
-          <div className='flex lg:grid grid-cols-6 flex-1 w-full gap-2 bg-black md:p-2 lg:overflow-auto'>
+          <audio onEnded={handleSongEnded} ref={ref} src={music.music}></audio>
+          <div className='flex lg:grid grid-cols-6 flex-1 w-full gap-2 bg-black md:p-2 overflow-auto'>
             <Navbar />
             <Routes>
               <Route path='/' element={<HomePage />} />

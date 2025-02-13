@@ -5,22 +5,20 @@ import { motion } from 'framer-motion'
 import { variants } from '../../variants/variants'
 import { formatTime } from "../../utils/formatTime"
 import { useAudioProgress } from '../../hooks/useAudioProgress'
-import { useSongEnded } from '../../hooks/useSongEnded'
 export const Footer = () => {
-  const { music, showFooter, ref } = useContext(contexto)
-  const style = showFooter ? 'block' : 'hidden'
+  const { music, showFooter } = useContext(contexto)
   const duration = formatTime(music.duration)
   const { time } = useAudioProgress()
-  const { handleSongEnded } = useSongEnded()
+
   return (
     <>
       {
-        music.name && (
+        music.name && showFooter && (
           <motion.footer
             variants={variants}
             initial="initial"
             animate="enter"
-            className={`${style} w-full bg-transparent sticky right-0 bottom-20 lg:bottom-0 lg:m-0 z-10 max-lg:max-w-xl mx-auto`}
+            className={`w-full bg-transparent fixed lg:sticky right-0 left-0 bottom-20 lg:bottom-0 lg:m-0 z-10 max-lg:max-w-xl mx-auto`}
           >
             <div className='flex justify-between items-center lg:mx-0 bg-red9 lg:bg-black rounded-lg p-3 gap-4 mx-2'>
               <CardSong />
@@ -47,7 +45,6 @@ export const Footer = () => {
               <div className='hidden lg:flex items-center gap-3 me-4 justify-end col-start-8 col-end-11'>
                 <MuteBtn />
                 <Slider />
-                <audio onEnded={handleSongEnded} ref={ref} src={music.music}></audio>
               </div>
             </div>
           </motion.footer>

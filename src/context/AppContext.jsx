@@ -18,6 +18,7 @@ export const AppContext = ({ children }) => {
   const [recent, setRecent] = useState([])
   const [showFooter, setShowFooter] = useState(true)
   const { data, error } = useSWR('/', fetcher)
+  const { data:songs,error:SongsError } = useSWR('songs', fetcher)
   useEffect(() => {
     const isAlbumPage = /^\/albums\/[^\/]+\/[^\/]+$/.test(location.pathname);
     if (!isAlbumPage) {
@@ -47,7 +48,7 @@ export const AppContext = ({ children }) => {
   }, [])
 
   return (
-    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data, error, allLoaded, setAllLoaded }}>
+    <contexto.Provider value={{ play, setPlay, music, setMusic, random, setRandom, repeat, setRepeat, volume, setVolume, likeSong, setLikeSong, musicTime, setMusicTime, sliderTime, setSliderTime, recent, setRecent, showFooter, setShowFooter, ref, data, error, allLoaded, setAllLoaded,songs }}>
       {children}
     </contexto.Provider>
   )
