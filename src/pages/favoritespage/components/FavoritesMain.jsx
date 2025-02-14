@@ -18,11 +18,11 @@ export const FavoritesMain = () => {
           </picture>
           <div className='flex flex-col justify-center'>
             <span className='text-sm'>Playlist</span>
-            <h1 className='font-semibold text-3xl mobileLg:text-5xl'>Your favorites</h1>
+            <h1 className='font-extrabold text-4xl mobileLg:text-5xl md:text-6xl xl:text-7xl'>Your favorites</h1>
             <div className='flex items-center gap-2 mobileLg:mt-3 text-base'>
               <span>The Strokes</span>
               <Circle />
-              <span>{likeSong.length}</span>
+              <span className='text-white9'>{likeSong.length}</span>
             </div>
           </div>
         </div>

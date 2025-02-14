@@ -19,10 +19,10 @@ export const SearchSong = ({ nameSong,submit }) => {
     )
   } else {
     if(submit == ''){
-      return <div className='text-white text-center text-xl mt-5 font-light'>Search for a song by The Strokes</div>
+      return <div className='text-white9 text-balance text-center text-2xl mt-5 font-light'>Search for a song by The Strokes</div>
     }else{
     return (
-      <div className='text-white text-center text-xl mt-5 font-light'>No matches found</div>
+      <div className='text-white9 text-center text-2xl mt-5 font-light'>No matches found</div>
     )}
   }
 }

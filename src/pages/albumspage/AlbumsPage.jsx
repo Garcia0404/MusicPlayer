@@ -21,11 +21,11 @@ export const AlbumsPage = () => {
           style={{ backgroundImage: "url(/img/the-strokes.webp)"}}>
         </motion.div>
         <motion.div style={{ opacity }} className='absolute top-0 left-0 w-full h-full bg-[#63000]'></motion.div>
-        <h1 className='absolute bottom-10 left-0 text-white text-5xl mobileLg:text-7xl tablet:text-8xl font-bold p-5'>The Strokes</h1>
+        <h1 className='absolute bottom-10 left-0 text-white text-5xl mobileLg:text-7xl tablet:text-8xl font-extrabold p-5'>The Strokes</h1>
       </header>
       <main className='relative flex flex-col gap-3 pt-8 px-3 sm:px-4 pb-40 lg:pb-4 text-white overflow-auto'>
         <div className='absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#603000]'></div>
-        <h2 className='text-white text-3xl font-medium z-10'>Albums</h2>
+        <h2 className='text-white text-4xl font-bold z-10'>Albums</h2>
         <ul className='z-10'>
           {
             data.map((album) => (
