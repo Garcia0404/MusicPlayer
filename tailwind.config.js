@@ -29,6 +29,9 @@ export default {
         'mobile': '360px',
         'mobileLg': '500px',
         'tablet': '610px',
+        '1400':'1400px',
+        '1600':'1600px',
+        '1900':'1900px'
       },
       gridTemplateColumns: {
         'mainH': 'repeat(auto-fill, minmax(200px, 1fr))',
