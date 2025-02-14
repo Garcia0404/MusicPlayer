@@ -31,7 +31,7 @@ export const AlbumMain = () => {
   ))
   const { setMusic, setPlay } = useContext(contexto)
   useScrollToTop()
-  const BACKGROUND_COLOR = "#3B2D2D"
+  const BACKGROUND_COLOR = albumid.backgroundColor
   return (
     <>
       {albumid ? (

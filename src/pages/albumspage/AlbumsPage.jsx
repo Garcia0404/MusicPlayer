@@ -20,7 +20,7 @@ export const AlbumsPage = () => {
           className='h-[280px] max-w-[900px] bg-center w-full overflow-hidden bg-cover' 
           style={{ backgroundImage: "url(/img/the-strokes.webp)"}}>
         </motion.div>
-        <motion.div style={{ opacity }} className='absolute top-0 left-0 w-full h-full bg-[#603000]'></motion.div>
+        <motion.div style={{ opacity }} className='absolute top-0 left-0 w-full h-full bg-[#63000]'></motion.div>
         <h1 className='absolute bottom-10 left-0 text-white text-5xl mobileLg:text-7xl tablet:text-8xl font-bold p-5'>The Strokes</h1>
       </header>
       <main className='relative flex flex-col gap-3 pt-8 px-3 sm:px-4 pb-40 lg:pb-4 text-white overflow-auto'>

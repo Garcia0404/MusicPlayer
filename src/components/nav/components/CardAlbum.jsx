@@ -8,11 +8,11 @@ export const CardAlbum = ({ layout = false,...album }) => {
       {
         layout ? (
           <motion.div layoutId={`album-${album.nombre}`} transition={{duration:0.3}}>
-            <motion.img className='h-12 w-12 rounded-md' src={album.image} alt={album.nombre} />
+            <motion.img className='size-12 rounded-md' src={album.image} alt={album.nombre} />
           </motion.div>
         ) : (
           <div>
-            <img className='h-12 w-12 rounded-md' src={album.image} alt={album.nombre} />
+            <img className='size-12 rounded-md' src={album.image} alt={album.nombre} />
           </div>
         )
       }

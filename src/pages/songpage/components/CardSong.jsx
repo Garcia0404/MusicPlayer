@@ -28,6 +28,7 @@ export const CardSong = () => {
     setShowFooter(false)
   }, [])
   useScrollToTop()
+  const BACKGROUND_COLOR = music.backgroundColor
   return (
     <>
       {
@@ -38,7 +39,7 @@ export const CardSong = () => {
             animate="enter"
             layout
             className='max-w-[700px] min-h-[600px] h-dvh overflow-auto lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary z-40 relative'>
-            <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{ background: "linear-gradient(#32aac8,transparent)" }}></motion.div>
+            <motion.div className='-z-10 absolute top-0 left-0 w-full h-full' animate={{background: `linear-gradient(${BACKGROUND_COLOR} 10%,#121212 90%)`}}></motion.div>
             <article className='flex justify-center flex-col px-5 p-5 text-white max-w-[700px] mx-auto h-full'>
               <BackButton callback={() => { setShowFooter(true) }} />
               <span className='flex justify-center font-extralight mt-4'>listening to the album</span>
