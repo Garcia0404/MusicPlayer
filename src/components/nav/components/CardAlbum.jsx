@@ -18,7 +18,7 @@ export const CardAlbum = ({ layout = false,...album }) => {
       }
       <main className='overflow-hidden'>
         <h1 className='text-white text-md text-nowrap'>{album.nombre}</h1>
-        <div className='text-white9'>
+        <div className='text-white9 whitespace-nowrap text-sm'>
           <span>Album - </span>
           <span> The Strokes</span>
         </div>

@@ -11,7 +11,7 @@ export const SearchPage = () => {
     setSearchsong(song)
   }
   return (
-    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md pt-6 px-3'>
+    <main className='max-w-[700px] lg:max-w-full w-full flex-1 mobile:mx-auto lg:mx-0 bg-secondary overflow-auto tablet:rounded-md pt-6 px-3'>
       <header className='sticky top-0 right-0 text-sm font-medium'>
         <form onSubmit={handleSubmit} className='flex gap-4 items-center relative rounded-3xl bg-grayMain text-white px-6 py-4'>
           <div>

@@ -13,7 +13,7 @@ export const Main = () => {
     [3, 9]
   ]
   return (
-    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md'>
+    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 flex-1 bg-secondary overflow-auto tablet:rounded-md'>
       <section className='bg-gradient-to-b from-[#545455] to-secondary to-80% text-white pt-10 px-4 pb-4 flex flex-col gap-3'>
         <h1 className='font-extrabold text-5xl lg:text-7xl mb-3'>Welcome !</h1>
         <main className="grid grid-cols-2 mobileLg:grid-cols-mainH gap-3">

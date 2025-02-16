@@ -15,7 +15,7 @@ export const AppRouter = () => {
       {allLoaded ?
         <div className='flex flex-col h-screen w-full'>
           <audio onEnded={handleSongEnded} ref={ref} src={music.music}></audio>
-          <div className='flex lg:grid grid-cols-6 flex-1 w-full gap-2 bg-black md:p-2 overflow-auto'>
+          <div className='flex flex-1 w-full gap-2 bg-black md:p-2 overflow-auto'>
             <Navbar />
             <Routes>
               <Route path='/' element={<HomePage />} />

@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 export const FavoritesMain = () => {
   const { likeSong } = useContext(contexto)
   return (
-    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 col-start-3 col-end-8 bg-secondary overflow-auto tablet:rounded-md max-lg:pb-36'>
+    <main className='max-w-[700px] lg:max-w-full w-full mobile:mx-auto lg:mx-0 flex-1 bg-secondary overflow-auto tablet:rounded-md max-lg:pb-36'>
       <section className='bg-gradient-to-b from-[#4E3899] to-secondary text-white'>
         <div className='w-full flex flex-col mobileLg:flex-row gap-6 mobileLg:items-center px-4 sm:px-6 pt-10'>
           <picture className='mx-auto mobileLg:m-0'>
