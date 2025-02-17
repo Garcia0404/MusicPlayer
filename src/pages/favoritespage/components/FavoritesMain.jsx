@@ -27,7 +27,7 @@ export const FavoritesMain = () => {
           </div>
         </div>
       </section>
-      <motion.ul className='grid mobile:grid-cols-2 mobileLg:grid-cols-mainH gap-3 text-white p-3 sm:p-6 list-none'>
+      <motion.ul className='grid mobile:grid-cols-2 sm:grid-cols-mainH gap-3 text-white p-3 sm:p-6 list-none'>
         <AnimatePresence>
           {
             likeSong.map((song, index) => (

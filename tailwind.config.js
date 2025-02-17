@@ -34,7 +34,7 @@ export default {
         '1900':'1900px'
       },
       gridTemplateColumns: {
-        'mainH': 'repeat(auto-fill, minmax(200px, 1fr))',
+        'mainH': 'repeat(auto-fill, minmax(300px, 1fr))',
       },
       backgroundImage: {
         'hero-pattern': "url('/img/the-strokes.webp')",
